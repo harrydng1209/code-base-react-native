@@ -1,0 +1,8 @@
+.git
+.husky
+.expo
+
+node_modules
+yarn.lock
+
+src/@types
