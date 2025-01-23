@@ -4,7 +4,7 @@ import utils from '@/utils';
 import axios, { AxiosError, AxiosResponse, HttpStatusCode } from 'axios';
 import qs from 'qs';
 
-const { ACCESS_TOKEN } = constants.shared.STORAGE_KEYS;
+const { STORAGE_KEYS } = constants.shared;
 
 const httpService = axios.create({
   baseURL: process.env.API_BASE_URL,
@@ -17,7 +17,7 @@ const httpService = axios.create({
 
 httpService.interceptors.request.use(
   (config) => {
-    const accessToken = localStorage.getItem(ACCESS_TOKEN);
+    const accessToken = localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
 
     if (config.data && !(config.data instanceof FormData))
       config.data = utils.shared.convertToSnakeCase(config.data);

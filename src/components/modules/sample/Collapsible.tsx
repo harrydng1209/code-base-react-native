@@ -1,10 +1,12 @@
-import { ThemedText } from '@/components/modules/ThemedText';
-import { ThemedView } from '@/components/modules/ThemedView';
-import { IconSymbol } from '@/components/shared/IconSymbol';
-import { Colors } from '@/constants/colors.const';
+import { ThemedText } from '@/components/modules/sample/ThemedText';
+import { ThemedView } from '@/components/modules/sample/ThemedView';
+import { IconSymbol } from '@/components/modules/sample/ui/IconSymbol';
+import constants from '@/constants';
 import { useColorScheme } from '@/hooks/shared/use-color-scheme';
 import { PropsWithChildren, useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+
+const { themeColors } = constants;
 
 export function Collapsible({
   children,
@@ -21,7 +23,7 @@ export function Collapsible({
         style={styles.heading}
       >
         <IconSymbol
-          color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
+          color={themeColors[theme].ICON}
           name="chevron.right"
           size={18}
           style={{ transform: [{ rotate: isOpen ? '90deg' : '0deg' }] }}

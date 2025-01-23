@@ -1,4 +1,4 @@
-import { ThemedText } from '@/components/modules/ThemedText';
+import { ThemedText } from '@/components/modules/sample/ThemedText';
 import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, {

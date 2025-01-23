@@ -1,20 +1,22 @@
-import { HapticTab } from '@/components/modules/HapticTab';
-import { IconSymbol } from '@/components/shared/IconSymbol';
-import TabBarBackground from '@/components/shared/TabBarBackground';
-import { Colors } from '@/constants/colors.const';
+import { HapticTab } from '@/components/modules/sample/HapticTab';
+import { IconSymbol } from '@/components/modules/sample/ui/IconSymbol';
+import TabBarBackground from '@/components/modules/sample/ui/TabBarBackground';
+import constants from '@/constants';
 import { useColorScheme } from '@/hooks/shared/use-color-scheme';
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
+const { themeColors } = constants;
+
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const theme = useColorScheme() ?? 'light';
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: themeColors[theme].TINT,
         tabBarBackground: TabBarBackground,
         tabBarButton: HapticTab,
         tabBarStyle: Platform.select({

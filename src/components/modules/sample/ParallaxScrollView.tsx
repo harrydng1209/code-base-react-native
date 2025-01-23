@@ -1,7 +1,7 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 
-import { ThemedView } from '@/components/modules/ThemedView';
-import { useBottomTabOverflow } from '@/components/shared/TabBarBackground';
+import { ThemedView } from '@/components/modules/sample/ThemedView';
+import { useBottomTabOverflow } from '@/components/modules/sample/ui/TabBarBackground';
 import { useColorScheme } from '@/hooks/shared/use-color-scheme';
 import { StyleSheet } from 'react-native';
 import Animated, {

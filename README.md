@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# code-base-react-native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This template should help get you started developing with React Native.
 
-## Get started
+## Overview
 
-1. Install dependencies
+- **Name**: code-base-react-native
+- **Description**: This template should help get you started developing with React Native
+- **Version**: 0.1.0
+- **License**: MIT
+- **Type**: Module
+- **Main**: expo-router/entry
 
-   ```bash
-   npm install
-   ```
+## Author
 
-2. Start the app
+- **Name**: HXRRY
+- **Email**: [harrydng1209@gmail.com](mailto:harrydng1209@gmail.com)
+- **GitHub**: [harrydng1209](https://github.com/harrydng1209)
 
-   ```bash
-    npx expo start
-   ```
+## Requirements
 
-In the output, you'll find options to open the app in a
+- **Node.js**: >= 20.x
+- **npm**: >= 10.x
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Scripts
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+This project includes several scripts to assist with development:
 
-## Get a fresh project
+- `start`: Start the Expo development server.
+- `android`: Start the server and open the app on Android.
+- `ios`: Start the server and open the app on iOS.
+- `web`: Start the server for web development.
+- `format`: Format code using Prettier.
+- `lint`: Lint code using ESLint and fix issues.
+- `type-check`: Perform type checking with TypeScript Compiler.
+- `check-all`: Run format, lint, and type-check scripts in parallel.
+- `preinstall`: Ensure only Yarn is used as the package manager.
+- `prepare`: Prepare Husky for Git hooks.
+- `precommit`: Run lint-staged and validate branch names before committing.
 
-When you're ready, run:
+## Getting Started
+
+To get started with this template, clone the repository and install dependencies:
 
 ```bash
-npm run reset-project
+git clone https://github.com/harrydng1209/code-base-react-native.git
+cd code-base-react-native
+yarn install
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.

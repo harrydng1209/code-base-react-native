@@ -1,7 +1,9 @@
-import { HelloWave } from '@/components/modules/HelloWave';
-import ParallaxScrollView from '@/components/modules/ParallaxScrollView';
-import { ThemedText } from '@/components/modules/ThemedText';
-import { ThemedView } from '@/components/modules/ThemedView';
+import BaseText from '@/components/base/BaseText';
+import BaseView from '@/components/base/BaseView';
+import { HelloWave } from '@/components/modules/sample/HelloWave';
+import ParallaxScrollView from '@/components/modules/sample/ParallaxScrollView';
+import { ThemedText } from '@/components/modules/sample/ThemedText';
+import { ThemedView } from '@/components/modules/sample/ThemedView';
 import { useTranslation } from 'react-i18next';
 import { Image, Platform, StyleSheet } from 'react-native';
 
@@ -59,9 +61,9 @@ export default function HomeScreen() {
         </ThemedText>
       </ThemedView>
 
-      <ThemedView>
-        <ThemedText>{t('shared.hello')}</ThemedText>
-      </ThemedView>
+      <BaseView>
+        <BaseText>{t('shared.hello')}</BaseText>
+      </BaseView>
     </ParallaxScrollView>
   );
 }
