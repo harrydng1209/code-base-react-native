@@ -1,11 +1,11 @@
 # code-base-react-native
 
-This template should help get you started developing with React Native.
+This template should help get you started developing with React Native in Expo.
 
 ## Overview
 
 - **Name**: code-base-react-native
-- **Description**: This template should help get you started developing with React Native
+- **Description**: This template should help get you started developing with React Native in Expo
 - **Version**: 0.1.0
 - **License**: MIT
 - **Type**: Module
