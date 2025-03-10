@@ -1,51 +1,82 @@
-import { HapticTab } from '@/components/modules/sample/HapticTab';
-import { IconSymbol } from '@/components/modules/sample/ui/IconSymbol';
-import TabBarBackground from '@/components/modules/sample/ui/TabBarBackground';
+import IconHomeTab from '@/assets/icons/shared/IconHomeTab';
+import IconProfileTab from '@/assets/icons/shared/IconProfileTab';
+import { COLORS } from '@/assets/styles/root/_variables.style';
+import BaseText from '@/components/base/BaseText';
 import constants from '@/constants';
-import { useColorScheme } from '@/hooks/shared/use-color-scheme';
+import useColorScheme from '@/hooks/shared/use-color-scheme';
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 const { themeColors } = constants;
 
-export default function TabLayout() {
-  const theme = useColorScheme() ?? 'light';
+const TabsLayout: React.FC = () => {
+  const theme = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: themeColors[theme].TINT,
-        tabBarBackground: TabBarBackground,
-        tabBarButton: HapticTab,
         tabBarStyle: Platform.select({
-          default: {},
+          default: {
+            borderTopWidth: 0,
+          },
           ios: {
-            // Use a transparent background on iOS to show the blur effect
+            borderTopWidth: 0,
+            elevation: 0,
             position: 'absolute',
           },
         }),
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="home-tab"
         options={{
-          tabBarIcon: ({ color }) => (
-            <IconSymbol color={color} name="house.fill" size={28} />
+          tabBarIcon: ({ focused }) => (
+            <IconHomeTab stroke={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3} />
           ),
-          title: 'Home',
+          tabBarLabel: ({ focused }) => (
+            <BaseText
+              style={[
+                styles.title,
+                { color: focused ? COLORS.BRANCH_2 : COLORS.TEXT_3 },
+              ]}
+            >
+              Home
+            </BaseText>
+          ),
         }}
       />
+
       <Tabs.Screen
-        name="explore"
+        name="profile-tab"
         options={{
-          tabBarIcon: ({ color }) => (
-            <IconSymbol color={color} name="paperplane.fill" size={28} />
+          tabBarIcon: ({ focused }) => (
+            <IconProfileTab
+              stroke={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3}
+            />
           ),
-          title: 'Explore',
+          tabBarLabel: ({ focused }) => (
+            <BaseText
+              style={[
+                styles.title,
+                { color: focused ? COLORS.BRANCH_2 : COLORS.TEXT_3 },
+              ]}
+            >
+              Profile
+            </BaseText>
+          ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 12,
+    fontWeight: 600,
+  },
+});
+
+export default TabsLayout;

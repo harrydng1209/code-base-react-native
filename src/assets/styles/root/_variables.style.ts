@@ -1,0 +1,30 @@
+export const COLORS = {
+  BRANCH_2: '#BC2030',
+  FUNCTION_ERROR: '#F61515',
+  FUNTION_PROGRESS_INFOR: '#1164FF',
+  NEUTRALS_1: '#131313',
+  NEUTRALS_2: '#484848',
+  NEUTRALS_4: '#C5C5C5',
+  NEUTRALS_5: '#E0E0E0',
+  NEUTRALS_6: '#F0F0F0',
+  NEUTRALS_7: '#FAFAFA',
+  NEUTRALS_GRAY: '#F5F5F5',
+  NEUTRALS_WHITE: '#FFF',
+  TEXT_1: '#131313',
+  TEXT_2: '#626262',
+  TEXT_3: '#B5B5B5',
+  TEXT_POSITIVE_SECONDARY: '#009951',
+  TEXT_WHITE: '#FFF',
+} as const;
+
+export const FONTS = {
+  BASE_FONT_FAMILY: 'Manrope, sans-serif',
+  BASE_FONT_SIZE: 14,
+  BASE_FONT_WEIGHT: 400,
+  BASE_LINE_HEIGHT: 16,
+} as const;
+
+export const LAYOUTS = {
+  MARGIN: 16,
+  PADDING: 16,
+} as const;

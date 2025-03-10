@@ -1,21 +1,22 @@
 import constants from '@/constants';
-import { useColorScheme } from '@/hooks/shared/use-color-scheme';
+import useColorScheme from '@/hooks/shared/use-color-scheme';
 
 const { themeColors } = constants;
 
 interface IProps {
-  dark?: string;
-  light?: string;
+  DARK?: string;
+  LIGHT?: string;
 }
 
 const useThemeColor = (
   props: IProps,
-  colorName: keyof typeof themeColors.dark & keyof typeof themeColors.light,
+  colorName: keyof typeof themeColors.DARK & keyof typeof themeColors.LIGHT,
 ) => {
-  const theme = useColorScheme() ?? 'light';
-  const colorFromProps = props[theme];
+  const theme = useColorScheme();
 
-  if (colorFromProps) return colorFromProps;
+  const colorProp = props[theme];
+
+  if (colorProp) return colorProp;
 
   return themeColors[theme][colorName];
 };

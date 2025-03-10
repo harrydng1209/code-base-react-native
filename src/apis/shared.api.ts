@@ -3,12 +3,11 @@ import utils from '@/utils';
 
 const { HEALTH_CHECK } = constants.routeApis;
 const { SELECTORS } = constants.shared;
-const { get } = utils.http;
 
 const shared = {
   healthCheck: async () => {
     const url = HEALTH_CHECK;
-    return await get<unknown>(
+    return await utils.http.get<unknown>(
       url,
       undefined,
       SELECTORS.APIS_SECTION,

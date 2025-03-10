@@ -1,5 +1,6 @@
 import constants from '@/constants';
 
+export type TColorScheme = 'DARK' | 'LIGHT';
 export type TDate = Date | number | string;
 
 export type TLoadingTargets =
@@ -12,7 +13,7 @@ export type TObjectString = Record<string, string>;
 export type TObjectUnknown = Record<string, unknown>;
 
 export type TOptions<V = boolean | number | string | TObjectUnknown> = {
-  id?: number;
+  key?: number | string;
   label: string;
   value: V;
 };

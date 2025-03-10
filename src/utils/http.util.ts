@@ -14,7 +14,6 @@ import {
 } from 'axios';
 
 const { ERROR_CODES, STORAGE_KEYS } = constants.shared;
-const { AUTH } = constants.routePages;
 
 interface IAxiosRequestConfig extends AxiosRequestConfig {
   _retry?: boolean;
@@ -115,7 +114,7 @@ const http = {
 
     if (!isTokenRefreshed) {
       authStore.actions.logout();
-      window.location.href = AUTH.LOGIN;
+      window.location.href = '/auth/login';
       return;
     }
 

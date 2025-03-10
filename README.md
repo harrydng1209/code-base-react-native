@@ -19,24 +19,27 @@ This template should help get you started developing with React Native in Expo.
 
 ## Requirements
 
-- **Node.js**: >= 20.x
-- **npm**: >= 10.x
+- **Node.js**: >= 22
+- **yarn**: >= 1
+- **npm**: please-use-yarn
+- **pnpm**: please-use-yarn
+- **bun**: please-use-yarn
 
 ## Scripts
 
 This project includes several scripts to assist with development:
 
-- `start`: Start the Expo development server.
-- `android`: Start the server and open the app on Android.
-- `ios`: Start the server and open the app on iOS.
-- `web`: Start the server for web development.
-- `format`: Format code using Prettier.
-- `lint`: Lint code using ESLint and fix issues.
-- `type-check`: Perform type checking with TypeScript Compiler.
-- `check-all`: Run format, lint, and type-check scripts in parallel.
-- `preinstall`: Ensure only Yarn is used as the package manager.
-- `prepare`: Prepare Husky for Git hooks.
-- `precommit`: Run lint-staged and validate branch names before committing.
+- `start`: Start the Expo development server
+- `android`: Start the server and open the app on Android
+- `ios`: Start the server and open the app on iOS
+- `web`: Start the server for web development
+- `format`: Format code using Prettier
+- `lint`: Lint code using ESLint and fix issues
+- `type-check`: Perform type checking with TypeScript Compiler
+- `check-all`: Run format, lint, and type-check scripts in parallel
+- `preinstall`: Ensure only Yarn is used as the package manager
+- `prepare`: Prepare Husky for Git hooks
+- `precommit`: Run lint-staged and validate branch names before committing
 
 ## Getting Started
 
