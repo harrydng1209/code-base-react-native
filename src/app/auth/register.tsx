@@ -1,4 +1,4 @@
-import IconGoBack from '@/assets/icons/shared/IconGoBack';
+import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
 import styles from '@/assets/styles/components/auth/register.style';
 import BaseButton from '@/components/base/BaseButton';
 import BaseFormItem from '@/components/base/BaseFormItem';
@@ -45,7 +45,8 @@ const Register: React.FC = () => {
       <BaseIconButton icon={<IconGoBack />} onPress={() => router.back()} />
 
       <BaseText heading="h4" style={styles.title}>
-        Welcome to Code Base React Native
+        Welcome to <br />
+        Code Base React Native
       </BaseText>
 
       <View style={styles.formContainer}>

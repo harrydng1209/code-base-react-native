@@ -1,4 +1,4 @@
-import IconWarningCircle from '@/assets/icons/shared/IconWarningCircle';
+import IconWarningCircle from '@/assets/icons/shared/IconWarningCircle.svg';
 import { COLORS } from '@/assets/styles/root/_variables.style';
 import { cloneElement, isValidElement } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';

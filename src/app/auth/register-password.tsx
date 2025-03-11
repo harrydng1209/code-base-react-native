@@ -1,7 +1,7 @@
-import IconEye from '@/assets/icons/modules/auth/IconEye';
-import IconEyeClosed from '@/assets/icons/modules/auth/IconEyeClosed';
-import IconCheckCircle from '@/assets/icons/shared/IconCheckCircle';
-import IconGoBack from '@/assets/icons/shared/IconGoBack';
+import IconEye from '@/assets/icons/modules/auth/IconEye.svg';
+import IconEyeClosed from '@/assets/icons/modules/auth/IconEyeClosed.svg';
+import IconCheckCircle from '@/assets/icons/shared/IconCheckCircle.svg';
+import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
 import styles from '@/assets/styles/components/auth/register-password.style';
 import { COLORS } from '@/assets/styles/root/_variables.style';
 import BaseButton from '@/components/base/BaseButton';
@@ -89,12 +89,13 @@ const RegisterPassword: React.FC = () => {
             <View className="nw-gap-2">
               <View style={styles.textContainer}>
                 <IconCheckCircle
-                  stroke={
+                  color={
                     isLengthValid
                       ? COLORS.TEXT_POSITIVE_SECONDARY
                       : COLORS.TEXT_3
                   }
                 />
+
                 <BaseText
                   style={[styles.text, isLengthValid ? styles.validText : null]}
                 >
@@ -104,12 +105,13 @@ const RegisterPassword: React.FC = () => {
 
               <View style={styles.textContainer}>
                 <IconCheckCircle
-                  stroke={
+                  color={
                     isLengthValid
                       ? COLORS.TEXT_POSITIVE_SECONDARY
                       : COLORS.TEXT_3
                   }
                 />
+
                 <BaseText
                   style={[styles.text, isFormatValid ? styles.validText : null]}
                 >

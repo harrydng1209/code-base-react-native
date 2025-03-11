@@ -1,5 +1,5 @@
-import IconHomeTab from '@/assets/icons/shared/IconHomeTab';
-import IconProfileTab from '@/assets/icons/shared/IconProfileTab';
+import IconHomeTab from '@/assets/icons/shared/IconHomeTab.svg';
+import IconProfileTab from '@/assets/icons/shared/IconProfileTab.svg';
 import { COLORS } from '@/assets/styles/root/_variables.style';
 import BaseText from '@/components/base/BaseText';
 import constants from '@/constants';
@@ -33,7 +33,7 @@ const TabsLayout: React.FC = () => {
         name="home-tab"
         options={{
           tabBarIcon: ({ focused }) => (
-            <IconHomeTab stroke={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3} />
+            <IconHomeTab color={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3} />
           ),
           tabBarLabel: ({ focused }) => (
             <BaseText
@@ -52,9 +52,7 @@ const TabsLayout: React.FC = () => {
         name="profile-tab"
         options={{
           tabBarIcon: ({ focused }) => (
-            <IconProfileTab
-              stroke={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3}
-            />
+            <IconProfileTab color={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3} />
           ),
           tabBarLabel: ({ focused }) => (
             <BaseText

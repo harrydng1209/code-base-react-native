@@ -1,4 +1,4 @@
-import IconClose from '@/assets/icons/shared/IconClose';
+import IconClose from '@/assets/icons/shared/IconClose.svg';
 import styles from '@/assets/styles/components/base-bottom-sheet.style';
 import {
   BottomSheetBackdrop,

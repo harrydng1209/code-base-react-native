@@ -1,6 +1,6 @@
 # code-base-react-native
 
-This template should help get you started developing with React Native in Expo.
+This template should help get you started developing with React Native in Expo
 
 ## Overview
 
