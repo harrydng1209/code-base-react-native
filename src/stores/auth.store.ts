@@ -2,7 +2,7 @@ import apis from '@/apis';
 import { IUserInfo } from '@/models/interfaces/auth.interface';
 import { create } from 'zustand';
 
-interface IAuthStore {
+interface IState {
   accessToken?: string;
   actions: {
     initialize: () => Promise<void>;
@@ -15,7 +15,7 @@ interface IAuthStore {
   userInfo?: IUserInfo;
 }
 
-const authStore = create<IAuthStore>((set, get) => ({
+const authStore = create<IState>((set, get) => ({
   accessToken: undefined,
 
   actions: {

@@ -1,6 +1,7 @@
 import '@/assets/styles/root/main.css';
 import '@/plugins/react-i18next.plugin.ts';
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
+import TheLoading from '@/components/shared/TheLoading';
 import constants from '@/constants';
 import BaseThemeProvider from '@/contexts/BaseThemeProvider';
 import useColorScheme from '@/hooks/shared/use-color-scheme';
@@ -60,6 +61,7 @@ const RootLayout: React.FC = () => {
           >
             <BaseThemeProvider>
               <StatusBar style="dark" />
+              <TheLoading />
 
               <Stack
                 screenOptions={{

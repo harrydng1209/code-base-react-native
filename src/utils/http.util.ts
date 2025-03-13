@@ -1,11 +1,11 @@
 import type { TLoadingTargets } from '@/models/types/shared.type';
-// import type { ElLoading } from 'element-plus';
 
 import constants from '@/constants';
 import { EResponseStatus } from '@/models/enums/auth.enum';
 import { TFailureResponse, TSuccessResponse } from '@/models/types/auth.type';
 import httpService from '@/services/http.service';
 import useAuthStore from '@/stores/auth.store';
+import { loadingStore } from '@/stores/loading.store';
 import {
   AxiosError,
   type AxiosRequestConfig,
@@ -26,13 +26,13 @@ const request = async <D = unknown, M = unknown>(
   url: string,
   data: unknown,
   config?: AxiosRequestConfig,
-  _loadingTarget?: TLoadingTargets,
+  loadingTarget?: TLoadingTargets,
   _toastMessage?: string,
 ) => {
-  // let loadingInstance: null | ReturnType<typeof ElLoading.service> = null;
+  const actions = loadingStore.getState().actions;
 
   try {
-    // loadingInstance = utils.shared.showLoading(loadingTarget || false);
+    if (loadingTarget) actions.showLoading();
 
     const response: AxiosResponse<TSuccessResponse<D, M>> = await httpService[
       method
@@ -71,7 +71,7 @@ const request = async <D = unknown, M = unknown>(
     };
     return Promise.reject(result);
   } finally {
-    // utils.shared.hideLoading(loadingInstance);
+    actions.hideLoading();
   }
 };
 
