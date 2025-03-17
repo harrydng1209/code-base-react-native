@@ -1,9 +1,9 @@
 import styles from '@/assets/styles/components/app.style';
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
-import BaseButton from '@/components/base/BaseButton';
-import BaseCarousel from '@/components/base/BaseCarousel';
-import BaseCarouselPagination from '@/components/base/BaseCarouselPagination';
-import BaseText from '@/components/base/BaseText';
+import BaseButton from '@/components/shared/BaseButton';
+import BaseCarousel from '@/components/shared/BaseCarousel';
+import BaseCarouselPagination from '@/components/shared/BaseCarouselPagination';
+import BaseText from '@/components/shared/BaseText';
 import { ICarouselItem } from '@/models/interfaces/shared.interface';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';

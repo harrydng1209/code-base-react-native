@@ -1,11 +1,11 @@
 import IconEye from '@/assets/icons/modules/auth/IconEye.svg';
 import IconEyeClosed from '@/assets/icons/modules/auth/IconEyeClosed.svg';
 import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
-import BaseButton from '@/components/base/BaseButton';
-import BaseFormItem from '@/components/base/BaseFormItem';
-import BaseIconButton from '@/components/base/BaseIconButton';
-import BaseText from '@/components/base/BaseText';
-import BaseTextInput from '@/components/base/BaseTextInput';
+import BaseButton from '@/components/shared/BaseButton';
+import BaseFormItem from '@/components/shared/BaseFormItem';
+import BaseIconButton from '@/components/shared/BaseIconButton';
+import BaseText from '@/components/shared/BaseText';
+import BaseTextInput from '@/components/shared/BaseTextInput';
 import { IPasswordRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';

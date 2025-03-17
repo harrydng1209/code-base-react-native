@@ -1,5 +1,5 @@
-import BaseButton from '@/components/base/BaseButton';
-import BaseText from '@/components/base/BaseText';
+import BaseButton from '@/components/shared/BaseButton';
+import BaseText from '@/components/shared/BaseText';
 import { useRouter } from 'expo-router';
 import { View } from 'react-native';
 

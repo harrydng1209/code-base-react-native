@@ -15,17 +15,17 @@ import { TouchableOpacity, View } from 'react-native';
 
 import BaseText from './BaseText';
 
-export type TRef = {
+export interface IBottomSheetRef {
   dismiss: () => void;
   present: () => void;
-};
+}
 
 interface IProps extends React.PropsWithChildren {
   snapPoints?: string[];
   title: string;
 }
 
-const BaseBottomSheet = forwardRef<TRef, IProps>((props, ref) => {
+const BaseBottomSheet = forwardRef<IBottomSheetRef, IProps>((props, ref) => {
   const { children, snapPoints, title, ...otherProps } = props;
 
   const bottomSheetRef = useRef<BottomSheetModal>(null);
