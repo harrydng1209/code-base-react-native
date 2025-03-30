@@ -5,35 +5,25 @@ import type {
   IUserInfo,
 } from '@/models/interfaces/auth.interface';
 
-import constants from '@/constants';
-import utils from '@/utils';
+import { AUTH } from '@/constants/route-apis.const';
+import { get, post } from '@/utils/api.util';
 
-const { AUTH } = constants.routeApis;
-
-const auth = {
-  login: async (data: ILoginRequest) => {
-    const url = AUTH.LOGIN;
-    return await utils.http.post<ILoginResponse>(url, data, {
-      withCredentials: true,
-    });
-  },
-
-  profile: async () => {
-    const url = AUTH.PROFILE;
-    return await utils.http.get<IUserInfo>(url);
-  },
-
-  refreshToken: async () => {
-    const url = AUTH.REFRESH_TOKEN;
-    return await utils.http.post<ILoginResponse>(url, undefined, {
-      withCredentials: true,
-    });
-  },
-
-  register: async (data: IRegister) => {
-    const url = AUTH.REGISTER;
-    return await utils.http.post<unknown>(url, data);
-  },
+export const login = async (data: ILoginRequest) => {
+  const url = AUTH.LOGIN;
+  return await post<ILoginResponse>(url, data);
 };
 
-export default auth;
+export const profile = async () => {
+  const url = AUTH.PROFILE;
+  return await get<IUserInfo>(url);
+};
+
+export const refreshToken = async (data: string) => {
+  const url = AUTH.REFRESH_TOKEN;
+  return await post<ILoginResponse>(url, data);
+};
+
+export const register = async (data: IRegister) => {
+  const url = AUTH.REGISTER;
+  return await post<unknown>(url, data);
+};

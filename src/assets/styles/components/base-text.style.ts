@@ -1,30 +1,45 @@
 import { StyleSheet } from 'react-native';
 
-import { FONTS } from '../root/_variables.style';
+import { COLORS, FONTS } from '../root/_variables.style';
 
 const styles = StyleSheet.create({
+  default: {
+    fontFamily: FONTS.BASE_FONT_FAMILY,
+  },
+  error: {
+    color: COLORS.FUNCTION_ERROR,
+  },
   h1: {
     fontSize: 48,
     fontWeight: 800,
-    lineHeight: 64,
+    lineHeight: 60,
   },
   h2: {
-    fontSize: 40,
-    fontWeight: 800,
-    lineHeight: 56,
+    fontSize: 36,
+    fontWeight: 700,
+    lineHeight: 45,
   },
   h3: {
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: 700,
-    lineHeight: 40,
+    lineHeight: 37.5,
   },
   h4: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 700,
-    lineHeight: 40,
+    lineHeight: 30,
+  },
+  h5: {
+    fontSize: 20,
+    fontWeight: 700,
+    lineHeight: 25,
+  },
+  h6: {
+    fontSize: 16,
+    fontWeight: 700,
+    lineHeight: 20,
   },
   text: {
-    fontFamily: FONTS.BASE_FONT_FAMILY,
     fontSize: FONTS.BASE_FONT_SIZE,
     fontWeight: FONTS.BASE_FONT_WEIGHT,
     lineHeight: FONTS.BASE_LINE_HEIGHT,

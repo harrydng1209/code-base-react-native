@@ -1,10 +1,8 @@
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
 import { ICarouselItem } from '@/models/interfaces/shared.interface';
-import utils from '@/utils';
+import { sleep } from '@/utils/shared.util';
 import { useCallback, useEffect, useRef } from 'react';
 import { Dimensions, FlatList } from 'react-native';
-
-const { sleep } = utils.shared;
 
 interface IProps {
   activeIndex: number;
@@ -24,8 +22,8 @@ const BaseCarousel: React.FC<IProps> = (props) => {
     ...otherProps
   } = props;
 
-  const { width: containerWidth } = Dimensions.get('window');
-  const CONTAINER_WIDTH = containerWidth - LAYOUTS.PADDING * 2;
+  const { width: screenWidth } = Dimensions.get('window');
+  const containerWidth = screenWidth - LAYOUTS.PADDING * 2;
   const flatListRef = useRef<FlatList<ICarouselItem>>(null);
   const currentIndex = useRef(activeIndex);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -33,10 +31,10 @@ const BaseCarousel: React.FC<IProps> = (props) => {
   const getItemLayout = useCallback(
     (_: ArrayLike<ICarouselItem> | null | undefined, index: number) => ({
       index,
-      length: CONTAINER_WIDTH,
-      offset: CONTAINER_WIDTH * index,
+      length: containerWidth,
+      offset: containerWidth * index,
     }),
-    [CONTAINER_WIDTH],
+    [containerWidth],
   );
 
   const startAutoScroll = useCallback(() => {

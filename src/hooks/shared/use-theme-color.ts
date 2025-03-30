@@ -1,24 +1,25 @@
-import constants from '@/constants';
+import { DARK, LIGHT } from '@/constants/theme-colors.const';
 import useColorScheme from '@/hooks/shared/use-color-scheme';
 
-const { themeColors } = constants;
-
-interface IProps {
+interface ICustomColors {
   DARK?: string;
   LIGHT?: string;
 }
 
-const useThemeColor = (
-  props: IProps,
-  colorName: keyof typeof themeColors.DARK & keyof typeof themeColors.LIGHT,
-) => {
+const useThemeColor = () => {
   const theme = useColorScheme();
 
-  const colorProp = props[theme];
+  const getThemeColor = (
+    colorName: keyof typeof DARK & keyof typeof LIGHT,
+    customColors?: ICustomColors,
+  ) => {
+    const customColor = customColors?.[theme];
+    const themeColor = theme === 'DARK' ? DARK[colorName] : LIGHT[colorName];
 
-  if (colorProp) return colorProp;
+    return customColor || themeColor;
+  };
 
-  return themeColors[theme][colorName];
+  return { getThemeColor };
 };
 
 export default useThemeColor;

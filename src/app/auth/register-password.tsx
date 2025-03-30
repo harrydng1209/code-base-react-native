@@ -9,7 +9,7 @@ import BaseFormItem from '@/components/shared/BaseFormItem';
 import BaseIconButton from '@/components/shared/BaseIconButton';
 import BaseText from '@/components/shared/BaseText';
 import BaseTextInput from '@/components/shared/BaseTextInput';
-import constants from '@/constants';
+import { REGEXES } from '@/constants/shared.const';
 import { IPasswordRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
@@ -22,8 +22,6 @@ import {
   View,
 } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
-
-const { REGEXES } = constants.shared;
 
 const RegisterPassword: React.FC = () => {
   const schema = yupObject({

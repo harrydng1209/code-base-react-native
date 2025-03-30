@@ -2,9 +2,9 @@ import '@/assets/styles/root/main.css';
 import '@/plugins/react-i18next.plugin.ts';
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
 import TheLoading from '@/components/shared/TheLoading';
-import constants from '@/constants';
-import BaseThemeProvider from '@/contexts/BaseThemeProvider';
-import useColorScheme from '@/hooks/shared/use-color-scheme';
+import { STORAGE_KEYS } from '@/constants/shared.const';
+import AppThemeProvider from '@/contexts/AppThemeProvider';
+import useThemeColor from '@/hooks/shared/use-theme-color';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { useFonts } from 'expo-font';
@@ -16,16 +16,13 @@ import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
-const { themeColors } = constants;
-const { STORAGE_KEYS } = constants.shared;
-
 preventAutoHideAsync();
 
 const RootLayout: React.FC = () => {
-  const theme = useColorScheme();
   const [fontLoaded, fontError] = useFonts({
     Manrope: require('@/assets/fonts/manrope/Manrope-VariableFont_wght.ttf'),
   });
+  const { getThemeColor } = useThemeColor();
 
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -54,12 +51,12 @@ const RootLayout: React.FC = () => {
             edges={['top', 'left', 'right']}
             style={[
               {
-                backgroundColor: themeColors[theme].BACKGROUND,
+                backgroundColor: getThemeColor('BACKGROUND'),
               },
               styles.container,
             ]}
           >
-            <BaseThemeProvider>
+            <AppThemeProvider>
               <StatusBar style="dark" />
               <TheLoading />
 
@@ -71,7 +68,7 @@ const RootLayout: React.FC = () => {
                 <Stack.Screen name={isLoggedIn ? '(tabs)' : 'auth'} />
                 <Stack.Screen name="+not-found" />
               </Stack>
-            </BaseThemeProvider>
+            </AppThemeProvider>
           </SafeAreaView>
         </BottomSheetModalProvider>
       </GestureHandlerRootView>

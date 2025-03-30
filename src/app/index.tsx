@@ -9,11 +9,11 @@ import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Dimensions, Image, View } from 'react-native';
 
-const Home: React.FC = () => {
+const App: React.FC = () => {
   const router = useRouter();
 
-  const { width: containerWidth } = Dimensions.get('window');
-  const CONTAINER_WIDTH = containerWidth - LAYOUTS.PADDING * 2;
+  const { width: screenWidth } = Dimensions.get('window');
+  const containerWidth = screenWidth - LAYOUTS.PADDING * 2;
   const carouselData: ICarouselItem[] = [
     {
       description:
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
             <View style={styles.slide}>
               <Image source={item.imageSrc} style={[styles.image]} />
 
-              <View style={{ width: CONTAINER_WIDTH }}>
+              <View style={{ width: containerWidth }}>
                 <BaseText
                   heading="h4"
                   style={[styles.slideTitle, { marginBottom: 8 }]}
@@ -104,4 +104,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default App;

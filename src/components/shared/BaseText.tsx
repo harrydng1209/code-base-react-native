@@ -4,18 +4,36 @@ import { Text, type TextProps } from 'react-native';
 
 interface IProps extends TextProps {
   darkColor?: string;
-  heading?: 'h1' | 'h2' | 'h3' | 'h4';
+  heading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   lightColor?: string;
+  type?: 'error';
 }
 
 const BaseText: React.FC<IProps> = (props) => {
-  const { darkColor, heading, lightColor, style, ...otherProps } = props;
+  const { darkColor, heading, lightColor, style, type, ...otherProps } = props;
 
-  const color = useThemeColor({ DARK: darkColor, LIGHT: lightColor }, 'TEXT');
+  const { getThemeColor } = useThemeColor();
 
-  const headingStyle = heading ? styles[heading] : styles.text;
+  const textColor = getThemeColor('TEXT', {
+    DARK: darkColor,
+    LIGHT: lightColor,
+  });
 
-  return <Text style={[headingStyle, { color }, style]} {...otherProps} />;
+  const textStyle = heading ? styles[heading] : styles.text;
+  const typeStyle = type ? styles[type] : null;
+
+  return (
+    <Text
+      style={[
+        styles.default,
+        { color: textColor },
+        textStyle,
+        typeStyle,
+        style,
+      ]}
+      {...otherProps}
+    />
+  );
 };
 
 export default BaseText;

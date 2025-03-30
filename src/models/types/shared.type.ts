@@ -1,11 +1,11 @@
-import constants from '@/constants';
+import { SELECTORS } from '@/constants/shared.const';
 
 export type TColorScheme = 'DARK' | 'LIGHT';
 export type TDate = Date | number | string;
 
 export type TLoadingTargets =
   | 'fullscreen'
-  | (typeof constants.shared.SELECTORS)[keyof typeof constants.shared.SELECTORS];
+  | (typeof SELECTORS)[keyof typeof SELECTORS];
 
 export type TObjectBoolean = Record<string, boolean>;
 export type TObjectString = Record<string, string>;

@@ -5,15 +5,13 @@ import BaseFormItem from '@/components/shared/BaseFormItem';
 import BaseIconButton from '@/components/shared/BaseIconButton';
 import BaseText from '@/components/shared/BaseText';
 import BaseTextInput from '@/components/shared/BaseTextInput';
-import constants from '@/constants';
+import { REGEXES } from '@/constants/shared.const';
 import { ILoginRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
-
-const { REGEXES } = constants.shared;
 
 const Register: React.FC = () => {
   const schema = yupObject({

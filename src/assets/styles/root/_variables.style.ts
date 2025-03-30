@@ -21,7 +21,7 @@ export const FONTS = {
   BASE_FONT_FAMILY: 'Manrope, sans-serif',
   BASE_FONT_SIZE: 14,
   BASE_FONT_WEIGHT: 400,
-  BASE_LINE_HEIGHT: 16,
+  BASE_LINE_HEIGHT: 21,
 } as const;
 
 export const LAYOUTS = {

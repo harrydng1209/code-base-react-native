@@ -2,21 +2,18 @@ import IconHomeTab from '@/assets/icons/shared/IconHomeTab.svg';
 import IconProfileTab from '@/assets/icons/shared/IconProfileTab.svg';
 import { COLORS } from '@/assets/styles/root/_variables.style';
 import BaseText from '@/components/shared/BaseText';
-import constants from '@/constants';
-import useColorScheme from '@/hooks/shared/use-color-scheme';
+import useThemeColor from '@/hooks/shared/use-theme-color';
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
 
-const { themeColors } = constants;
-
 const TabsLayout: React.FC = () => {
-  const theme = useColorScheme();
+  const { getThemeColor } = useThemeColor();
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: themeColors[theme].TINT,
+        tabBarActiveTintColor: getThemeColor('TINT'),
         tabBarStyle: Platform.select({
           default: {
             borderTopWidth: 0,

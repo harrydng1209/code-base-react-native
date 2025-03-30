@@ -1,4 +1,3 @@
-import constants from '@/constants';
 import useColorScheme from '@/hooks/shared/use-color-scheme';
 import {
   DarkTheme,
@@ -6,11 +5,9 @@ import {
   ThemeProvider,
 } from '@react-navigation/native';
 
-const { themeColors } = constants;
-
 interface IProps extends React.PropsWithChildren {}
 
-const BaseThemeProvider: React.FC<IProps> = (props) => {
+const AppThemeProvider: React.FC<IProps> = (props) => {
   const { children } = props;
 
   const theme = useColorScheme();
@@ -19,7 +16,7 @@ const BaseThemeProvider: React.FC<IProps> = (props) => {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      background: themeColors[theme].BACKGROUND,
+      background: 'transparent',
     },
   };
 
@@ -28,11 +25,11 @@ const BaseThemeProvider: React.FC<IProps> = (props) => {
       ...DarkTheme,
       colors: {
         ...DarkTheme.colors,
-        background: themeColors[theme].BACKGROUND,
+        background: 'transparent',
       },
     };
 
   return <ThemeProvider value={themeConfig}>{children}</ThemeProvider>;
 };
 
-export default BaseThemeProvider;
+export default AppThemeProvider;
