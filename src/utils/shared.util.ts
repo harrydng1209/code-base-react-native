@@ -4,8 +4,9 @@ import { EResponseStatus } from '@/models/enums/auth.enum';
 import { TFailureResponse } from '@/models/types/auth.type';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import qs from 'qs';
+import { stringify } from 'qs';
 import stringTemplate from 'string-template';
+import { create, StateCreator } from 'zustand';
 
 dayjs.extend(utc);
 
@@ -83,7 +84,7 @@ export const formatQueryString = (
   const queryString =
     typeof query === 'string'
       ? query
-      : qs.stringify(query, { arrayFormat: 'brackets' });
+      : stringify(query, { arrayFormat: 'brackets' });
   return `${baseUrl}?${queryString}`;
 };
 
@@ -119,5 +120,21 @@ export const sleep = async (second: number) => {
       resolve();
       clearTimeout(timer);
     }, 1000 * second);
+  });
+};
+
+export const resetAll = <T>(stateCreator?: StateCreator<T>) => {
+  const storeResetFns = new Set<() => void>();
+
+  if (stateCreator) {
+    const store = create(stateCreator);
+    const initialState = store.getInitialState();
+    storeResetFns.add(() => {
+      store.setState(initialState, true);
+    });
+  }
+
+  storeResetFns.forEach((resetFn) => {
+    resetFn();
   });
 };

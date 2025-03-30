@@ -4,7 +4,7 @@ import { handleUnauthorizedError } from '@/utils/api.util';
 import { convertToCamelCase, convertToSnakeCase } from '@/utils/shared.util';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios, { AxiosError, AxiosResponse, HttpStatusCode } from 'axios';
-import qs from 'qs';
+import { stringify } from 'qs';
 
 const apiConfig = axios.create({
   baseURL: process.env.API_BASE_URL || 'http://localhost:8080',
@@ -12,7 +12,7 @@ const apiConfig = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
-  paramsSerializer: (params) => qs.stringify(params, { indices: true }),
+  paramsSerializer: (params) => stringify(params, { indices: true }),
 });
 
 apiConfig.interceptors.request.use(
@@ -23,6 +23,7 @@ apiConfig.interceptors.request.use(
       config.data = convertToSnakeCase(config.data);
     if (config.params) config.params = convertToSnakeCase(config.params);
     if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
+
     return config;
   },
   (error) => Promise.reject(error),
@@ -34,9 +35,10 @@ apiConfig.interceptors.response.use(
     return response;
   },
   (error: AxiosError<TFailureResponse>) => {
-    const status = error.response?.status;
+    const statusCode = error.response?.status;
 
-    if (status === HttpStatusCode.Unauthorized) handleUnauthorizedError(error);
+    if (statusCode === HttpStatusCode.Unauthorized)
+      handleUnauthorizedError(error);
 
     return Promise.reject(error);
   },

@@ -1,11 +1,11 @@
 # code-base-react-native
 
-This template should help get you started developing with React Native in Expo
+This template will help you get started with React Native in Expo
 
 ## Overview
 
 - **Name**: code-base-react-native
-- **Description**: This template should help get you started developing with React Native in Expo
+- **Description**: This template will help you get started with React Native in Expo
 - **Version**: 0.1.0
 - **License**: MIT
 - **Type**: Module
@@ -19,7 +19,7 @@ This template should help get you started developing with React Native in Expo
 
 ## Requirements
 
-- **Node.js**: >= 22
+- **Node**: >= 22
 - **yarn**: >= 1
 - **npm**: please-use-yarn
 - **pnpm**: please-use-yarn
@@ -33,6 +33,8 @@ This project includes several scripts to assist with development:
 - `android`: Start the server and open the app on Android
 - `ios`: Start the server and open the app on iOS
 - `web`: Start the server for web development
+- `build:android`: Build the Android app using EAS
+- `build:ios`: Build the iOS app using EAS
 - `format`: Format code using Prettier
 - `lint`: Lint code using ESLint and fix issues
 - `type-check`: Perform type checking with TypeScript Compiler
