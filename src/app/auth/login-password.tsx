@@ -1,11 +1,11 @@
 import IconEye from '@/assets/icons/modules/auth/IconEye.svg';
 import IconEyeClosed from '@/assets/icons/modules/auth/IconEyeClosed.svg';
 import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseFormItem from '@/components/shared/BaseFormItem';
-import BaseIconButton from '@/components/shared/BaseIconButton';
-import BaseText from '@/components/shared/BaseText';
-import BaseTextInput from '@/components/shared/BaseTextInput';
+import { BaseButton } from '@/components/shared/BaseButton';
+import { BaseFormItem } from '@/components/shared/BaseFormItem';
+import { BaseIconButton } from '@/components/shared/BaseIconButton';
+import { BaseText } from '@/components/shared/BaseText';
+import { BaseTextInput } from '@/components/shared/BaseTextInput';
 import { IPasswordRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-const LoginPassword: React.FC = () => {
+export const LoginPassword: React.FC = () => {
   const schema = yupObject({
     password: yupString()
       .required('Password is required')
@@ -99,5 +99,3 @@ const styles = StyleSheet.create({
     marginTop: 56,
   },
 });
-
-export default LoginPassword;

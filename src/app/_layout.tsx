@@ -1,10 +1,10 @@
 import '@/assets/styles/root/main.css';
 import '@/plugins/react-i18next.plugin.ts';
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
-import TheLoading from '@/components/shared/TheLoading';
+import { TheLoading } from '@/components/shared/TheLoading';
 import { STORAGE_KEYS } from '@/constants/shared.const';
-import AppThemeProvider from '@/contexts/AppThemeProvider';
-import useThemeColor from '@/hooks/shared/use-theme-color';
+import { AppThemeProvider } from '@/contexts/AppThemeProvider';
+import { useThemeColor } from '@/hooks/shared/use-theme-color';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { useFonts } from 'expo-font';
@@ -18,7 +18,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 preventAutoHideAsync();
 
-const RootLayout: React.FC = () => {
+export const RootLayout: React.FC = () => {
   const [fontLoaded, fontError] = useFonts({
     Manrope: require('@/assets/fonts/manrope/Manrope-VariableFont_wght.ttf'),
   });
@@ -81,5 +81,3 @@ const styles = StyleSheet.create({
     padding: LAYOUTS.PADDING,
   },
 });
-
-export default RootLayout;

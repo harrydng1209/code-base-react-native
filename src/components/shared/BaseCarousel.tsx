@@ -12,7 +12,7 @@ interface IProps {
   renderItem: (item: ICarouselItem) => JSX.Element;
 }
 
-const BaseCarousel: React.FC<IProps> = (props) => {
+export const BaseCarousel: React.FC<IProps> = (props) => {
   const {
     activeIndex,
     autoScrollInterval = 3000,
@@ -101,5 +101,3 @@ const BaseCarousel: React.FC<IProps> = (props) => {
     />
   );
 };
-
-export default BaseCarousel;

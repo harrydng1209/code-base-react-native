@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useDebounce = <T extends (args: unknown) => void>(
+export const useDebounce = <T extends (args: unknown) => void>(
   callback: T,
   delay: number,
 ) => {
@@ -13,5 +13,3 @@ const useDebounce = <T extends (args: unknown) => void>(
     setTimer(newTimer);
   };
 };
-
-export default useDebounce;

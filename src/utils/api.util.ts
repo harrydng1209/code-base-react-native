@@ -1,10 +1,10 @@
 import type { TLoadingTargets } from '@/models/types/shared.type';
 
-import apiConfig from '@/configs/api.config';
+import { apiConfig } from '@/configs/api.config';
 import { ERROR_CODES, STORAGE_KEYS } from '@/constants/shared.const';
 import { EResponseStatus } from '@/models/enums/auth.enum';
 import { TFailureResponse, TSuccessResponse } from '@/models/types/auth.type';
-import useAuthStore from '@/stores/auth.store';
+import { useAuthStore } from '@/stores/auth.store';
 import { loadingStore } from '@/stores/loading.store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {

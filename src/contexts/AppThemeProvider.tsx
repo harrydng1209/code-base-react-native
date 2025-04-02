@@ -1,4 +1,4 @@
-import useColorScheme from '@/hooks/shared/use-color-scheme';
+import { useColorScheme } from '@/hooks/shared/use-color-scheme';
 import {
   DarkTheme,
   DefaultTheme,
@@ -7,7 +7,7 @@ import {
 
 interface IProps extends React.PropsWithChildren {}
 
-const AppThemeProvider: React.FC<IProps> = (props) => {
+export const AppThemeProvider: React.FC<IProps> = (props) => {
   const { children } = props;
 
   const theme = useColorScheme();
@@ -31,5 +31,3 @@ const AppThemeProvider: React.FC<IProps> = (props) => {
 
   return <ThemeProvider value={themeConfig}>{children}</ThemeProvider>;
 };
-
-export default AppThemeProvider;

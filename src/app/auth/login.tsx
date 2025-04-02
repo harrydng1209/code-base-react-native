@@ -3,12 +3,12 @@ import IconFacebook from '@/assets/icons/modules/auth/IconFacebook.svg';
 import IconGoogle from '@/assets/icons/modules/auth/IconGoogle.svg';
 import IconTwitter from '@/assets/icons/modules/auth/IconTwitter.svg';
 import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
-import styles from '@/assets/styles/components/auth/login.style';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseFormItem from '@/components/shared/BaseFormItem';
-import BaseIconButton from '@/components/shared/BaseIconButton';
-import BaseText from '@/components/shared/BaseText';
-import BaseTextInput from '@/components/shared/BaseTextInput';
+import { styles } from '@/assets/styles/components/auth/login.style';
+import { BaseButton } from '@/components/shared/BaseButton';
+import { BaseFormItem } from '@/components/shared/BaseFormItem';
+import { BaseIconButton } from '@/components/shared/BaseIconButton';
+import { BaseText } from '@/components/shared/BaseText';
+import { BaseTextInput } from '@/components/shared/BaseTextInput';
 import { REGEXES } from '@/constants/shared.const';
 import { ILoginRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,7 +17,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-const Login: React.FC = () => {
+export const Login: React.FC = () => {
   const schema = yupObject({
     emailOrPhone: yupString()
       .required('Field is required')
@@ -108,5 +108,3 @@ const Login: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
-
-export default Login;

@@ -1,10 +1,10 @@
 import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
-import styles from '@/assets/styles/components/auth/register.style';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseFormItem from '@/components/shared/BaseFormItem';
-import BaseIconButton from '@/components/shared/BaseIconButton';
-import BaseText from '@/components/shared/BaseText';
-import BaseTextInput from '@/components/shared/BaseTextInput';
+import { styles } from '@/assets/styles/components/auth/register.style';
+import { BaseButton } from '@/components/shared/BaseButton';
+import { BaseFormItem } from '@/components/shared/BaseFormItem';
+import { BaseIconButton } from '@/components/shared/BaseIconButton';
+import { BaseText } from '@/components/shared/BaseText';
+import { BaseTextInput } from '@/components/shared/BaseTextInput';
 import { REGEXES } from '@/constants/shared.const';
 import { ILoginRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,7 +13,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-const Register: React.FC = () => {
+export const Register: React.FC = () => {
   const schema = yupObject({
     emailOrPhone: yupString()
       .required('Field is required')
@@ -44,7 +44,7 @@ const Register: React.FC = () => {
 
       <BaseText heading="h4" style={styles.title}>
         Welcome to <br />
-        Code Base React Native
+        Codebase React Native
       </BaseText>
 
       <View style={styles.formContainer}>
@@ -81,5 +81,3 @@ const Register: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
-
-export default Register;

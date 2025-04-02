@@ -1,12 +1,12 @@
 import IconHomeTab from '@/assets/icons/shared/IconHomeTab.svg';
 import IconProfileTab from '@/assets/icons/shared/IconProfileTab.svg';
 import { COLORS } from '@/assets/styles/root/_variables.style';
-import BaseText from '@/components/shared/BaseText';
-import useThemeColor from '@/hooks/shared/use-theme-color';
+import { BaseText } from '@/components/shared/BaseText';
+import { useThemeColor } from '@/hooks/shared/use-theme-color';
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
 
-const TabsLayout: React.FC = () => {
+export const TabsLayout: React.FC = () => {
   const { getThemeColor } = useThemeColor();
 
   return (
@@ -73,5 +73,3 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
 });
-
-export default TabsLayout;

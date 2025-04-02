@@ -14,7 +14,7 @@ interface IProps extends TextInputProps {
   suffix?: React.ReactNode;
 }
 
-const BaseTextInput: React.FC<IProps> = (props) => {
+export const BaseTextInput: React.FC<IProps> = (props) => {
   const { prefix, style, styleContainer, suffix, ...otherProps } = props;
 
   return (
@@ -64,5 +64,3 @@ const styles = StyleSheet.create({
     height: 52,
   },
 });
-
-export default BaseTextInput;

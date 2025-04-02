@@ -1,12 +1,12 @@
 import { DARK, LIGHT } from '@/constants/theme-colors.const';
-import useColorScheme from '@/hooks/shared/use-color-scheme';
+import { useColorScheme } from '@/hooks/shared/use-color-scheme';
 
 interface ICustomColors {
   DARK?: string;
   LIGHT?: string;
 }
 
-const useThemeColor = () => {
+export const useThemeColor = () => {
   const theme = useColorScheme();
 
   const getThemeColor = (
@@ -21,5 +21,3 @@ const useThemeColor = () => {
 
   return { getThemeColor };
 };
-
-export default useThemeColor;

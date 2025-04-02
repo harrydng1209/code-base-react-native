@@ -1,5 +1,5 @@
-import styles from '@/assets/styles/components/base-text.style';
-import useThemeColor from '@/hooks/shared/use-theme-color';
+import { styles } from '@/assets/styles/components/base-text.style';
+import { useThemeColor } from '@/hooks/shared/use-theme-color';
 import { Text, type TextProps } from 'react-native';
 
 interface IProps extends TextProps {
@@ -9,7 +9,7 @@ interface IProps extends TextProps {
   type?: 'error';
 }
 
-const BaseText: React.FC<IProps> = (props) => {
+export const BaseText: React.FC<IProps> = (props) => {
   const { darkColor, heading, lightColor, style, type, ...otherProps } = props;
 
   const { getThemeColor } = useThemeColor();
@@ -35,5 +35,3 @@ const BaseText: React.FC<IProps> = (props) => {
     />
   );
 };
-
-export default BaseText;

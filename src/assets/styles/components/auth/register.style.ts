@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { COLORS } from '../../root/_variables.style';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   formContainer: {
     flex: 1,
     justifyContent: 'space-between',
@@ -28,5 +28,3 @@ const styles = StyleSheet.create({
     marginTop: 56,
   },
 });
-
-export default styles;

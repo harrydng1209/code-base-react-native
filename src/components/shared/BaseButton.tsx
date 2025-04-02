@@ -1,4 +1,4 @@
-import styles from '@/assets/styles/components/base-button.style';
+import { styles } from '@/assets/styles/components/base-button.style';
 import {
   StyleProp,
   TextStyle,
@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 
-import BaseText from './BaseText';
+import { BaseText } from './BaseText';
 
 interface IProps extends TouchableOpacityProps {
   icon?: React.ReactNode;
@@ -16,7 +16,7 @@ interface IProps extends TouchableOpacityProps {
   type?: 'default' | 'disable' | 'primary' | 'secondary';
 }
 
-const BaseButton: React.FC<IProps> = (props) => {
+export const BaseButton: React.FC<IProps> = (props) => {
   const {
     children,
     icon,
@@ -82,5 +82,3 @@ const BaseButton: React.FC<IProps> = (props) => {
     </TouchableOpacity>
   );
 };
-
-export default BaseButton;

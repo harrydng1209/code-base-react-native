@@ -1,9 +1,9 @@
-import BaseButton from '@/components/shared/BaseButton';
-import BaseText from '@/components/shared/BaseText';
+import { BaseButton } from '@/components/shared/BaseButton';
+import { BaseText } from '@/components/shared/BaseText';
 import { useRouter } from 'expo-router';
 import { View } from 'react-native';
 
-const NotFound: React.FC = () => {
+export const NotFound: React.FC = () => {
   const router = useRouter();
 
   return (
@@ -18,5 +18,3 @@ const NotFound: React.FC = () => {
     </View>
   );
 };
-
-export default NotFound;

@@ -1,10 +1,11 @@
 import IconWarningCircle from '@/assets/icons/shared/IconWarningCircle.svg';
 import { COLORS } from '@/assets/styles/root/_variables.style';
 import { cloneElement, isValidElement } from 'react';
+import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
 
-import BaseText from './BaseText';
+import { BaseText } from './BaseText';
 
 interface IProps extends React.PropsWithChildren {
   label?: string;
@@ -12,7 +13,7 @@ interface IProps extends React.PropsWithChildren {
   showError?: boolean;
 }
 
-const BaseFormItem: React.FC<IProps> = (props) => {
+export const BaseFormItem: React.FC<IProps> = (props) => {
   const { children, label = '', name, showError = true, ...otherProps } = props;
 
   const {
@@ -79,5 +80,3 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-
-export default BaseFormItem;

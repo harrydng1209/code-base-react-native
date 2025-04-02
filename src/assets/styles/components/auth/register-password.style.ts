@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { COLORS } from '../../root/_variables.style';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   agreementText: {
     fontSize: 13,
     fontWeight: 500,
@@ -35,5 +35,3 @@ const styles = StyleSheet.create({
     color: COLORS.TEXT_POSITIVE_SECONDARY,
   },
 });
-
-export default styles;

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { COLORS, FONTS } from '../root/_variables.style';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   default: {
     fontFamily: FONTS.BASE_FONT_FAMILY,
   },
@@ -45,5 +45,3 @@ const styles = StyleSheet.create({
     lineHeight: FONTS.BASE_LINE_HEIGHT,
   },
 });
-
-export default styles;

@@ -8,13 +8,13 @@ import {
   View,
 } from 'react-native';
 
-import BaseText from './BaseText';
+import { BaseText } from './BaseText';
 
 interface IProps extends TouchableOpacityProps {
   tabs: TOptions[];
 }
 
-const BaseTabs: React.FC<IProps> = (props) => {
+export const BaseTabs: React.FC<IProps> = (props) => {
   const { children, tabs, ...otherProps } = props;
 
   const [selectedTab, setSelectedTab] = useState<number>(0);
@@ -76,5 +76,3 @@ const styles = StyleSheet.create({
     padding: 4,
   },
 });
-
-export default BaseTabs;

@@ -1,8 +1,8 @@
 import { COLORS } from '@/assets/styles/root/_variables.style';
-import useLoadingStore from '@/stores/loading.store';
+import { useLoadingStore } from '@/stores/loading.store';
 import { ActivityIndicator, Modal, StyleSheet, View } from 'react-native';
 
-const TheLoading: React.FC = () => {
+export const TheLoading: React.FC = () => {
   const { isLoading } = useLoadingStore();
 
   if (!isLoading) return null;
@@ -24,5 +24,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-export default TheLoading;

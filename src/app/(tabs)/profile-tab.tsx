@@ -1,5 +1,5 @@
-const ProfileTab: React.FC = () => {
+import React from 'react';
+
+export const ProfileTab: React.FC = () => {
   return <></>;
 };
-
-export default ProfileTab;

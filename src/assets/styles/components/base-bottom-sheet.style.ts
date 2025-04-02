@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { COLORS } from '../root/_variables.style';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   closeButton: {
     height: 28,
     position: 'absolute',
@@ -37,5 +37,3 @@ const styles = StyleSheet.create({
     marginTop: 28,
   },
 });
-
-export default styles;

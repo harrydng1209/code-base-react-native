@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Permission, PermissionsAndroid, Platform } from 'react-native';
 
-const useDevicePermission = (type: Permission) => {
+export const useDevicePermission = (type: Permission) => {
   const [granted, setGranted] = useState<boolean>(false);
 
   const requestPermission = async () => {
@@ -20,5 +20,3 @@ const useDevicePermission = (type: Permission) => {
 
   return { granted, requestPermission };
 };
-
-export default useDevicePermission;

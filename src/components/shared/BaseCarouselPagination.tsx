@@ -1,4 +1,4 @@
-import styles from '@/assets/styles/components/base-carousel-pagination.style';
+import { styles } from '@/assets/styles/components/base-carousel-pagination.style';
 import { ICarouselItem } from '@/models/interfaces/shared.interface';
 import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 
@@ -8,7 +8,7 @@ interface IProps extends TouchableOpacityProps {
   onPageChange: (index: number) => void;
 }
 
-const BaseCarouselPagination: React.FC<IProps> = (props) => {
+export const BaseCarouselPagination: React.FC<IProps> = (props) => {
   const { activeIndex, data, onPageChange, ...otherProps } = props;
 
   return (
@@ -30,5 +30,3 @@ const BaseCarouselPagination: React.FC<IProps> = (props) => {
     </View>
   );
 };
-
-export default BaseCarouselPagination;

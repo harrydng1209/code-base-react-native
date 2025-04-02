@@ -1,15 +1,16 @@
-import styles from '@/assets/styles/components/app.style';
+import { styles } from '@/assets/styles/components/app.style';
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseCarousel from '@/components/shared/BaseCarousel';
-import BaseCarouselPagination from '@/components/shared/BaseCarouselPagination';
-import BaseText from '@/components/shared/BaseText';
+import { BaseButton } from '@/components/shared/BaseButton';
+import { BaseCarousel } from '@/components/shared/BaseCarousel';
+import { BaseCarouselPagination } from '@/components/shared/BaseCarouselPagination';
+import { BaseText } from '@/components/shared/BaseText';
 import { ICarouselItem } from '@/models/interfaces/shared.interface';
 import { useRouter } from 'expo-router';
+import React from 'react';
 import { useState } from 'react';
 import { Dimensions, Image, View } from 'react-native';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const router = useRouter();
 
   const { width: screenWidth } = Dimensions.get('window');
@@ -20,7 +21,7 @@ const App: React.FC = () => {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
       id: 1,
       imageSrc: require('@/assets/images/modules/auth/mock-carousel.jpg'),
-      title: 'Code Base React Native',
+      title: 'Codebase React Native',
     },
     {
       description:
@@ -103,5 +104,3 @@ const App: React.FC = () => {
     </>
   );
 };
-
-export default App;

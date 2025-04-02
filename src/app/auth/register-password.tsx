@@ -2,13 +2,13 @@ import IconEye from '@/assets/icons/modules/auth/IconEye.svg';
 import IconEyeClosed from '@/assets/icons/modules/auth/IconEyeClosed.svg';
 import IconCheckCircle from '@/assets/icons/shared/IconCheckCircle.svg';
 import IconGoBack from '@/assets/icons/shared/IconGoBack.svg';
-import styles from '@/assets/styles/components/auth/register-password.style';
+import { styles } from '@/assets/styles/components/auth/register-password.style';
 import { COLORS } from '@/assets/styles/root/_variables.style';
-import BaseButton from '@/components/shared/BaseButton';
-import BaseFormItem from '@/components/shared/BaseFormItem';
-import BaseIconButton from '@/components/shared/BaseIconButton';
-import BaseText from '@/components/shared/BaseText';
-import BaseTextInput from '@/components/shared/BaseTextInput';
+import { BaseButton } from '@/components/shared/BaseButton';
+import { BaseFormItem } from '@/components/shared/BaseFormItem';
+import { BaseIconButton } from '@/components/shared/BaseIconButton';
+import { BaseText } from '@/components/shared/BaseText';
+import { BaseTextInput } from '@/components/shared/BaseTextInput';
 import { REGEXES } from '@/constants/shared.const';
 import { IPasswordRequest } from '@/models/interfaces/auth.interface';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,7 +23,7 @@ import {
 } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-const RegisterPassword: React.FC = () => {
+export const RegisterPassword: React.FC = () => {
   const schema = yupObject({
     password: yupString()
       .required('Password is required')
@@ -140,5 +140,3 @@ const RegisterPassword: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
-
-export default RegisterPassword;

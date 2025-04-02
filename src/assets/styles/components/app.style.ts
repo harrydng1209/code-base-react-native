@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { COLORS } from '../root/_variables.style';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   carousel: {
     marginBottom: 48,
   },
@@ -48,5 +48,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-export default styles;

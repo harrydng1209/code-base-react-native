@@ -9,7 +9,7 @@ interface IProps extends TouchableOpacityProps {
   icon: React.ReactNode;
 }
 
-const BaseIconButton: React.FC<IProps> = (props) => {
+export const BaseIconButton: React.FC<IProps> = (props) => {
   const { icon, style, ...otherProps } = props;
 
   return (
@@ -30,5 +30,3 @@ const styles = StyleSheet.create({
     width: 36,
   },
 });
-
-export default BaseIconButton;

@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { COLORS } from '../root/_variables.style';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     borderRadius: 40,
@@ -42,5 +42,3 @@ const styles = StyleSheet.create({
     fontWeight: 700,
   },
 });
-
-export default styles;

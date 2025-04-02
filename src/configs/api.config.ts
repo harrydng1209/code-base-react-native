@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios, { AxiosError, AxiosResponse, HttpStatusCode } from 'axios';
 import { stringify } from 'qs';
 
-const apiConfig = axios.create({
+export const apiConfig = axios.create({
   baseURL: process.env.API_BASE_URL || 'http://localhost:8080',
   headers: {
     Accept: 'application/json',
@@ -43,5 +43,3 @@ apiConfig.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-
-export default apiConfig;

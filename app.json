@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "code-base-react-native",
-    "slug": "code-base-react-native",
+    "name": "codebase-react-native",
+    "slug": "codebase-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "src/assets/images/shared/icon.png",

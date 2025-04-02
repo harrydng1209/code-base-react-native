@@ -1,10 +1,10 @@
-# code-base-react-native
+# codebase-react-native
 
 This template will help you get started with React Native in Expo
 
 ## Overview
 
-- **Name**: code-base-react-native
+- **Name**: codebase-react-native
 - **Description**: This template will help you get started with React Native in Expo
 - **Version**: 0.1.0
 - **License**: MIT
@@ -48,7 +48,7 @@ This project includes several scripts to assist with development:
 To get started with this template, clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/harrydng1209/code-base-react-native.git
-cd code-base-react-native
+git clone https://github.com/harrydng1209/codebase-react-native.git
+cd codebase-react-native
 yarn install
 ```

@@ -1,4 +1,4 @@
-const locales = {
+export const locales = {
   en: {
     translation: {
       ...require('./en/auth.json'),
@@ -18,5 +18,3 @@ const locales = {
     },
   },
 } as const;
-
-export default locales;

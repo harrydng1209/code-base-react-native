@@ -76,7 +76,7 @@ const authStore = create<IState>((set, get) => ({
   userInfo: undefined,
 }));
 
-const useAuthStore = () => {
+export const useAuthStore = () => {
   const actions = authStore((state) => state.actions);
 
   const isAuthenticated = authStore((state) => state.isAuthenticated);
@@ -85,5 +85,3 @@ const useAuthStore = () => {
 
   return { accessToken, actions, isAuthenticated, userInfo };
 };
-
-export default useAuthStore;
