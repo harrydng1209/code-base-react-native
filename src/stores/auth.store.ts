@@ -1,11 +1,12 @@
 import { profile, refreshToken as refreshTokenApi } from '@/apis/auth.api';
 import { STORAGE_KEYS } from '@/constants/shared.const';
 import { IUserInfo } from '@/models/interfaces/auth.interface';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getStorage, removeStorage, setStorage } from '@/utils/storage.util';
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 interface IState {
-  accessToken?: string;
+  accessToken: null | string;
   actions: {
     initialize: () => Promise<void>;
     logout: () => void;
@@ -13,75 +14,92 @@ interface IState {
     setToken: (token: string) => void;
     setUser: (data: IUserInfo) => void;
   };
+  getters: {
+    getIsAuthenticated: () => boolean;
+    getUserInfo: () => IUserInfo | undefined;
+    getUserRole: () => string | undefined;
+  };
   isAuthenticated: boolean;
   userInfo?: IUserInfo;
 }
 
-const authStore = create<IState>((set, get) => ({
-  accessToken: undefined,
+export const authStore = create<IState>()(
+  devtools((set, get) => ({
+    accessToken: getStorage<string>(STORAGE_KEYS.ACCESS_TOKEN),
 
-  actions: {
-    initialize: async () => {
-      const { accessToken, actions, isAuthenticated } = get();
-      if (isAuthenticated) return;
+    actions: {
+      initialize: async () => {
+        if (get().isAuthenticated) return;
 
-      const isLoggedIn = Boolean(accessToken);
-      if (!isLoggedIn) return;
+        const accessToken = get().accessToken;
+        const isLoggedIn = Boolean(accessToken);
+        if (!isLoggedIn) return;
 
-      try {
-        const response = await profile();
-        actions.setUser(response.data);
-      } catch (error) {
-        console.error(error);
-      }
+        try {
+          const response = await profile();
+          get().actions.setUser(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      },
+
+      logout: async () => {
+        set({
+          accessToken: null,
+          isAuthenticated: false,
+          userInfo: undefined,
+        });
+        await removeStorage(STORAGE_KEYS.ACCESS_TOKEN);
+      },
+
+      refreshToken: async (): Promise<boolean> => {
+        let result = true;
+        try {
+          const refreshToken = await getStorage<string>(
+            STORAGE_KEYS.REFRESH_TOKEN,
+          );
+          if (!refreshToken) return false;
+
+          const response = await refreshTokenApi(refreshToken);
+          get().actions.setToken(response.data.accessToken);
+        } catch (error) {
+          result = false;
+          console.error(error);
+        }
+        return result;
+      },
+
+      setToken: async (token: string) => {
+        if (token === null) {
+          await removeStorage(STORAGE_KEYS.ACCESS_TOKEN);
+          set({ accessToken: null });
+          return;
+        }
+        await setStorage(STORAGE_KEYS.ACCESS_TOKEN, token);
+        set({ accessToken: token });
+      },
+
+      setUser: (data: IUserInfo) =>
+        set({ isAuthenticated: true, userInfo: data }),
     },
 
-    logout: () =>
-      set({
-        accessToken: undefined,
-        isAuthenticated: false,
-        userInfo: undefined,
-      }),
-
-    refreshToken: async (): Promise<boolean> => {
-      let result = true;
-
-      try {
-        const refreshToken = await AsyncStorage.getItem(
-          STORAGE_KEYS.REFRESH_TOKEN,
-        );
-        if (!refreshToken) return false;
-
-        const response = await refreshTokenApi(refreshToken);
-
-        await AsyncStorage.setItem(
-          STORAGE_KEYS.ACCESS_TOKEN,
-          response.data.accessToken,
-        );
-        set({ accessToken: response.data.accessToken });
-      } catch (error) {
-        console.error(error);
-        result = false;
-      }
-      return result;
+    getters: {
+      getIsAuthenticated: () => get().isAuthenticated,
+      getUserInfo: () => get().userInfo,
+      getUserRole: () => get().userInfo?.role,
     },
 
-    setToken: (token: string) => set({ accessToken: token }),
-
-    setUser: (data: IUserInfo) =>
-      set({ isAuthenticated: true, userInfo: data }),
-  },
-
-  isAuthenticated: false,
-  userInfo: undefined,
-}));
+    isAuthenticated: false,
+    userInfo: undefined,
+  })),
+);
 
 export const useAuthStore = () => {
   const actions = authStore((state) => state.actions);
+  const getters = authStore((state) => state.getters);
 
-  const isAuthenticated = authStore((state) => state.isAuthenticated);
-  const userInfo = authStore((state) => state.userInfo);
-  const accessToken = authStore((state) => state.accessToken);
-
-  return { accessToken, actions, isAuthenticated, userInfo };
+  return {
+    ...getters,
+    ...actions,
+  };
 };

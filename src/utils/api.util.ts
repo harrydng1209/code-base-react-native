@@ -4,7 +4,7 @@ import { apiConfig } from '@/configs/api.config';
 import { ERROR_CODES, STORAGE_KEYS } from '@/constants/shared.const';
 import { EResponseStatus } from '@/models/enums/auth.enum';
 import { TFailureResponse, TSuccessResponse } from '@/models/types/auth.type';
-import { useAuthStore } from '@/stores/auth.store';
+import { authStore } from '@/stores/auth.store';
 import { loadingStore } from '@/stores/loading.store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
@@ -110,12 +110,11 @@ export const get = async <T = unknown, M = unknown>(
 export const handleUnauthorizedError = async (
   error: AxiosError<TFailureResponse>,
 ) => {
-  const authStore = useAuthStore();
   const router = useRouter();
-  const isTokenRefreshed = await authStore.actions.refreshToken();
+  const isTokenRefreshed = await authStore.getState().actions.refreshToken();
 
   if (!isTokenRefreshed) {
-    authStore.actions.logout();
+    authStore.getState().actions.logout();
     router.replace('/auth/login');
     return;
   }

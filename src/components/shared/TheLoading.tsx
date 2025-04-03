@@ -3,12 +3,12 @@ import { useLoadingStore } from '@/stores/loading.store';
 import { ActivityIndicator, Modal, StyleSheet, View } from 'react-native';
 
 export const TheLoading: React.FC = () => {
-  const { isLoading } = useLoadingStore();
+  const loadingStore = useLoadingStore();
 
-  if (!isLoading) return null;
+  if (!loadingStore.getIsLoading()) return null;
 
   return (
-    <Modal animationType="fade" transparent={true} visible={isLoading}>
+    <Modal animationType="fade" transparent={true} visible={true}>
       <View style={styles.overlay}>
         <ActivityIndicator color={COLORS.BRANCH_2} size="large" />
       </View>
