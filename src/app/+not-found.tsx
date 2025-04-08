@@ -7,11 +7,10 @@ export const NotFound: React.FC = () => {
   const router = useRouter();
 
   return (
-    <View className="nw-absolute-center">
-      <BaseText className="nw-mb-[16] nw-text-center">
+    <View className="nw-absolute-center nw-flex-center nw-flex-col">
+      <BaseText className="nw-mb-4" heading="h4">
         This screen does not exist
       </BaseText>
-
       <BaseButton onPress={() => router.push('/')}>
         Go to home screen
       </BaseButton>
