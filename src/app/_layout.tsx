@@ -18,7 +18,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 preventAutoHideAsync();
 
-export const RootLayout: React.FC = () => {
+const RootLayout: React.FC = () => {
   const [fontLoaded, fontError] = useFonts({
     Manrope: require('@/assets/fonts/manrope/Manrope-VariableFont_wght.ttf'),
   });
@@ -81,3 +81,5 @@ const styles = StyleSheet.create({
     padding: LAYOUTS.PADDING,
   },
 });
+
+export default RootLayout;

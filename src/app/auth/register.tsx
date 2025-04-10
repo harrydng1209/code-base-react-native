@@ -13,7 +13,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, Platform, View } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-export const Register: React.FC = () => {
+const Register: React.FC = () => {
   const schema = yupObject({
     emailOrPhone: yupString()
       .required('Field is required')
@@ -81,3 +81,5 @@ export const Register: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
+
+export default Register;

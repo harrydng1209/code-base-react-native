@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const ProfileTab: React.FC = () => {
+const ProfileTab: React.FC = () => {
   return <></>;
 };
+
+export default ProfileTab;

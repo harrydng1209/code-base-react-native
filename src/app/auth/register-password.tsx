@@ -23,7 +23,7 @@ import {
 } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-export const RegisterPassword: React.FC = () => {
+const RegisterPassword: React.FC = () => {
   const schema = yupObject({
     password: yupString()
       .required('Password is required')
@@ -140,3 +140,5 @@ export const RegisterPassword: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
+
+export default RegisterPassword;

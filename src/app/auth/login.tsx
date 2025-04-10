@@ -17,7 +17,7 @@ import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-export const Login: React.FC = () => {
+const Login: React.FC = () => {
   const schema = yupObject({
     emailOrPhone: yupString()
       .required('Field is required')
@@ -108,3 +108,5 @@ export const Login: React.FC = () => {
     </KeyboardAvoidingView>
   );
 };
+
+export default Login;

@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 import { object as yupObject, string as yupString } from 'yup';
 
-export const LoginPassword: React.FC = () => {
+const LoginPassword: React.FC = () => {
   const schema = yupObject({
     password: yupString()
       .required('Password is required')
@@ -99,3 +99,5 @@ const styles = StyleSheet.create({
     marginTop: 56,
   },
 });
+
+export default LoginPassword;

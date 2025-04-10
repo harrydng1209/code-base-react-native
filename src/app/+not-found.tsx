@@ -3,7 +3,7 @@ import { BaseText } from '@/components/shared/BaseText';
 import { useRouter } from 'expo-router';
 import { View } from 'react-native';
 
-export const NotFound: React.FC = () => {
+const NotFound: React.FC = () => {
   const router = useRouter();
 
   return (
@@ -17,3 +17,5 @@ export const NotFound: React.FC = () => {
     </View>
   );
 };
+
+export default NotFound;

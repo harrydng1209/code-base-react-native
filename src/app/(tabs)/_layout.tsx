@@ -6,7 +6,7 @@ import { useThemeColor } from '@/hooks/shared/use-theme-color';
 import { Tabs } from 'expo-router';
 import { Platform, StyleSheet } from 'react-native';
 
-export const TabsLayout: React.FC = () => {
+const TabsLayout: React.FC = () => {
   const { getThemeColor } = useThemeColor();
 
   return (
@@ -73,3 +73,5 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
 });
+
+export default TabsLayout;

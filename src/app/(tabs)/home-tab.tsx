@@ -1,5 +1,7 @@
 import React from 'react';
 
-export const HomeTab: React.FC = () => {
+const HomeTab: React.FC = () => {
   return <></>;
 };
+
+export default HomeTab;

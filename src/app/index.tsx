@@ -10,7 +10,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Dimensions, Image, View } from 'react-native';
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   const router = useRouter();
 
   const { width: screenWidth } = Dimensions.get('window');
@@ -104,3 +104,5 @@ export const App: React.FC = () => {
     </>
   );
 };
+
+export default App;
