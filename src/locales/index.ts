@@ -1,20 +1,21 @@
+import enAuth from './en/auth.json';
+import enShared from './en/shared.json';
+import jaAuth from './ja/auth.json';
+import jaShared from './ja/shared.json';
+import viAuth from './vi/auth.json';
+import viShared from './vi/shared.json';
+
 export const locales = {
   en: {
-    translation: {
-      ...require('./en/auth.json'),
-      ...require('./en/shared.json'),
-    },
+    ...enAuth,
+    ...enShared,
   },
   ja: {
-    translation: {
-      ...require('./ja/auth.json'),
-      ...require('./ja/shared.json'),
-    },
+    ...jaAuth,
+    ...jaShared,
   },
   vi: {
-    translation: {
-      ...require('./vi/auth.json'),
-      ...require('./vi/shared.json'),
-    },
+    ...viAuth,
+    ...viShared,
   },
 } as const;
