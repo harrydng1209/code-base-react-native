@@ -1,5 +1,5 @@
 import '@/assets/styles/root/main.css';
-import '@/plugins/react-i18next.plugin.ts';
+import '@/plugins/react-i18next.plugin';
 import { LAYOUTS } from '@/assets/styles/root/_variables.style';
 import { TheLoading } from '@/components/shared/TheLoading';
 import { STORAGE_KEYS } from '@/constants/shared.const';
@@ -15,8 +15,10 @@ import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { enableScreens } from 'react-native-screens';
 
 preventAutoHideAsync();
+enableScreens(true);
 
 const RootLayout: React.FC = () => {
   const [fontLoaded, fontError] = useFonts({

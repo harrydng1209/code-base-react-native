@@ -1,0 +1,37 @@
+{
+  "auth": {
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "inputPassword": "パスワードを入力する",
+    "noAccount": "アカウントをお持ちでないですか？",
+    "registerNow": "今すぐ登録する",
+    "register": "登録する",
+    "passwordConfirm": "パスワードを確認する",
+    "username": "ユーザー名",
+    "displayName": "表示名",
+    "enterYourUsername": "ユーザー名を入力してください",
+    "enterYourDisplayName": "表示名を入力してください",
+    "hasAccount": "すでにアカウントをお持ちです！",
+    "loginNow": "今すぐログイン"
+  },
+  "shared": {
+    "hello": "こんにちは",
+    "dashboard": "ダッシュボード",
+    "settings": "設定",
+    "search": "検索",
+
+    "navigator": {
+      "home": "ホーム",
+      "login": "ログイン",
+      "register": "登録する",
+      "codebase": "ベースコンポーネント"
+    },
+
+    "button": {
+      "ok": "はい",
+      "cancel": "キャンセル"
+    }
+  }
+}
