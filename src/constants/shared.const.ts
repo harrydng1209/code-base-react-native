@@ -32,8 +32,8 @@ export const SELECTORS = {
 } as const;
 
 export const STORAGE_KEYS = {
-  ACCESS_TOKEN: 'r-access-token',
-  LANGUAGE: 'r-language',
-  REFRESH_TOKEN: 'r-refresh-token',
-  THEME: 'r-theme',
+  ACCESS_TOKEN: 'r_access_token',
+  LANGUAGE: 'r_language',
+  REFRESH_TOKEN: 'r_refresh_token',
+  THEME: 'r_theme',
 } as const;
