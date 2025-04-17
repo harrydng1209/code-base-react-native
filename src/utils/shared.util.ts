@@ -5,7 +5,6 @@ import { TFailureResponse } from '@/models/types/auth.type';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { stringify } from 'qs';
-import stringTemplate from 'string-template';
 import { create, StateCreator } from 'zustand';
 
 dayjs.extend(utc);
@@ -87,21 +86,6 @@ export const formatQueryString = (
       : stringify(query, { arrayFormat: 'brackets' });
   return `${baseUrl}?${queryString}`;
 };
-
-export const formatString = (
-  template: string,
-  values: TObjectUnknown | unknown[],
-): string => {
-  return stringTemplate(template, values);
-};
-
-// showToast: (description: string, type = EToast.Success, message: string = capitalize(type)) => {
-//   notification[type]({
-//     description,
-//     duration: 3,
-//     message,
-//   });
-// },
 
 export const isFailureResponse = (
   response: Error | TFailureResponse,

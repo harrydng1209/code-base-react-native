@@ -6,7 +6,7 @@ import { EResponseStatus } from '@/models/enums/auth.enum';
 import { TFailureResponse, TSuccessResponse } from '@/models/types/auth.type';
 import { authStore } from '@/stores/auth.store';
 import { loadingStore } from '@/stores/loading.store';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import asyncStorage from '@react-native-async-storage/async-storage';
 import {
   AxiosError,
   type AxiosRequestConfig,
@@ -120,7 +120,7 @@ export const handleUnauthorizedError = async (
     return;
   }
 
-  const accessToken = await AsyncStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+  const accessToken = await asyncStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
   const originalRequest = error.config as IAxiosRequestConfig;
 
   if (originalRequest) {

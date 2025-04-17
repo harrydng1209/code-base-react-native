@@ -2,7 +2,7 @@ import { profile, refreshToken as refreshTokenApi } from '@/apis/auth.api';
 import { STORAGE_KEYS } from '@/constants/shared.const';
 import { ERole } from '@/models/enums/auth.enum';
 import { IUserInfo } from '@/models/interfaces/auth.interface';
-import { getStorage, removeStorage, setStorage } from '@/utils/storage.util';
+import asyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
@@ -26,7 +26,7 @@ interface IState {
 
 export const authStore = create<IState>()(
   devtools((set, get) => ({
-    accessToken: getStorage<string>(STORAGE_KEYS.ACCESS_TOKEN),
+    accessToken: asyncStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN),
 
     actions: {
       initialize: async () => {
@@ -49,13 +49,13 @@ export const authStore = create<IState>()(
           isAuthenticated: false,
           userInfo: undefined,
         });
-        await removeStorage(STORAGE_KEYS.ACCESS_TOKEN);
+        await asyncStorage.removeItem(STORAGE_KEYS.ACCESS_TOKEN);
       },
 
       refreshToken: async (): Promise<boolean> => {
         let result = true;
         try {
-          const refreshToken = await getStorage<string>(
+          const refreshToken = await asyncStorage.getItem(
             STORAGE_KEYS.REFRESH_TOKEN,
           );
           if (!refreshToken) return false;
@@ -70,12 +70,7 @@ export const authStore = create<IState>()(
       },
 
       setToken: async (token: string) => {
-        if (token === null) {
-          await removeStorage(STORAGE_KEYS.ACCESS_TOKEN);
-          set({ accessToken: null });
-          return;
-        }
-        await setStorage(STORAGE_KEYS.ACCESS_TOKEN, token);
+        await asyncStorage.setItem(STORAGE_KEYS.ACCESS_TOKEN, token);
         set({ accessToken: token });
       },
 

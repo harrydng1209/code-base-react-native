@@ -2,7 +2,7 @@ import { STORAGE_KEYS } from '@/constants/shared.const';
 import { TFailureResponse, TSuccessResponse } from '@/models/types/auth.type';
 import { handleUnauthorizedError } from '@/utils/api.util';
 import { convertToCamelCase, convertToSnakeCase } from '@/utils/shared.util';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import asyncStorage from '@react-native-async-storage/async-storage';
 import axios, { AxiosError, AxiosResponse, HttpStatusCode } from 'axios';
 import { stringify } from 'qs';
 
@@ -17,7 +17,7 @@ export const apiConfig = axios.create({
 
 apiConfig.interceptors.request.use(
   async (config) => {
-    const accessToken = await AsyncStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+    const accessToken = await asyncStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
 
     if (config.data && !(config.data instanceof FormData))
       config.data = convertToSnakeCase(config.data);
