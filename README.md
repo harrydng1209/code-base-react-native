@@ -29,7 +29,7 @@ This template will help you get started with React Native in Expo
 
 This project includes several scripts to assist with development:
 
-- `start`: Start the Expo development server
+- `start`: Start the development server
 - `android`: Start the server and open the app on Android
 - `ios`: Start the server and open the app on iOS
 - `web`: Start the server for web development
