@@ -3,9 +3,9 @@ import { useLoadingStore } from '@/stores/loading.store';
 import { ActivityIndicator, Modal, StyleSheet, View } from 'react-native';
 
 export const TheLoading: React.FC = () => {
-  const loadingStore = useLoadingStore();
+  const isLoading = useLoadingStore((state) => state.isLoading);
 
-  if (!loadingStore.getIsLoading()) return null;
+  if (!isLoading) return null;
 
   return (
     <Modal animationType="fade" transparent={true} visible={true}>
