@@ -57,11 +57,9 @@ const Register: React.FC = () => {
           </BaseFormItem>
 
           <View className="nw-mb-4">
-            <View>
-              <BaseButton onPress={registerForm.handleSubmit(onSubmit)}>
-                Next
-              </BaseButton>
-            </View>
+            <BaseButton onPress={registerForm.handleSubmit(onSubmit)}>
+              Next
+            </BaseButton>
 
             <View style={styles.textContainer}>
               <BaseText style={styles.textHasAccount}>

@@ -33,16 +33,19 @@ export const BaseButton: React.FC<IProps> = (props) => {
     primary: styles.primaryButton,
     secondary: styles.secondaryButton,
   };
+
   const textStyles = {
     default: styles.defaultText,
     disable: styles.disable,
     primary: styles.primaryText,
     secondary: styles.secondaryText,
   };
+
   const iconStyles = {
     end: { right: 0 },
     start: { left: 0 },
   };
+
   const iconDirection = iconPosition === 'start' ? 'row' : 'row-reverse';
   const flexDirection = icon ? iconDirection : 'row';
 

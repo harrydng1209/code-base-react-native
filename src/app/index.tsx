@@ -86,7 +86,7 @@ const App: React.FC = () => {
         />
       </View>
 
-      <View>
+      <>
         <BaseButton
           className="nw-mb-4"
           styleText={{ fontSize: 16, lineHeight: 24 }}
@@ -100,7 +100,7 @@ const App: React.FC = () => {
         >
           Log in
         </BaseText>
-      </View>
+      </>
     </>
   );
 };

@@ -52,12 +52,12 @@ export const BaseBottomSheet = forwardRef<IBottomSheetRef, IProps>(
         )}
         handleComponent={null}
         ref={bottomSheetRef}
-        snapPoints={snapPoints || ['79%']}
+        snapPoints={snapPoints || ['80%']}
         style={styles.container}
         {...otherProps}
       >
         <BottomSheetView style={styles.contentContainer}>
-          <View>
+          <>
             <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
               <View style={styles.iconClose}>
                 <IconClose />
@@ -65,7 +65,7 @@ export const BaseBottomSheet = forwardRef<IBottomSheetRef, IProps>(
             </TouchableOpacity>
 
             <BaseText style={styles.modalTitle}>{title}</BaseText>
-          </View>
+          </>
 
           <View>{children}</View>
         </BottomSheetView>

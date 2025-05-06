@@ -58,43 +58,41 @@ const Login: React.FC = () => {
         </BaseText>
 
         <View style={styles.formContainer}>
-          <View>
-            <FormProvider {...loginForm}>
-              <BaseFormItem label="Email/ Phone number" name="emailOrPhone">
-                <BaseTextInput
-                  onSubmitEditing={loginForm.handleSubmit(onSubmit)}
-                  placeholder="Input here"
-                />
-              </BaseFormItem>
+          <FormProvider {...loginForm}>
+            <BaseFormItem label="Email/ Phone number" name="emailOrPhone">
+              <BaseTextInput
+                onSubmitEditing={loginForm.handleSubmit(onSubmit)}
+                placeholder="Input here"
+              />
+            </BaseFormItem>
 
-              <BaseButton
-                className="nw-mt-4"
-                onPress={loginForm.handleSubmit(onSubmit)}
-              >
-                Next
-              </BaseButton>
-            </FormProvider>
+            <BaseButton
+              className="nw-mt-4"
+              onPress={loginForm.handleSubmit(onSubmit)}
+            >
+              Next
+            </BaseButton>
+          </FormProvider>
 
-            <View style={styles.dividerContainer}>
-              <View style={styles.line} />
-              <BaseText style={styles.textOr}>Or</BaseText>
-              <View style={styles.line} />
-            </View>
+          <View style={styles.dividerContainer}>
+            <View style={styles.line} />
+            <BaseText style={styles.textOr}>Or</BaseText>
+            <View style={styles.line} />
+          </View>
 
-            <View className="nw-gap-3">
-              <BaseButton icon={<IconGoogle />} type="default">
-                Continue with Google
-              </BaseButton>
-              <BaseButton icon={<IconApple />} type="default">
-                Continue with Apple
-              </BaseButton>
-              <BaseButton icon={<IconFacebook />} type="default">
-                Continue with Facebook
-              </BaseButton>
-              <BaseButton icon={<IconTwitter />} type="default">
-                Continue with X (Twitter)
-              </BaseButton>
-            </View>
+          <View className="nw-gap-3">
+            <BaseButton icon={<IconGoogle />} type="default">
+              Continue with Google
+            </BaseButton>
+            <BaseButton icon={<IconApple />} type="default">
+              Continue with Apple
+            </BaseButton>
+            <BaseButton icon={<IconFacebook />} type="default">
+              Continue with Facebook
+            </BaseButton>
+            <BaseButton icon={<IconTwitter />} type="default">
+              Continue with X (Twitter)
+            </BaseButton>
           </View>
 
           <BaseText
