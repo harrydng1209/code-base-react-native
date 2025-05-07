@@ -8,14 +8,18 @@ import { StyleSheet, View } from 'react-native';
 import { BaseText } from './BaseText';
 
 interface IProps extends React.PropsWithChildren {
-  label?: string;
+  label?: React.ReactNode;
   name: string;
   showError?: boolean;
 }
 
-export const BaseFormItem: React.FC<IProps> = (props) => {
-  const { children, label = '', name, showError = true, ...otherProps } = props;
-
+export const BaseFormItem: React.FC<IProps> = ({
+  children,
+  label = '',
+  name,
+  showError = true,
+  ...otherProps
+}) => {
   const {
     control,
     formState: { errors },
@@ -25,7 +29,7 @@ export const BaseFormItem: React.FC<IProps> = (props) => {
 
   return (
     <View className="nw-gap-1">
-      <BaseText style={styles.label}>{label}</BaseText>
+      {label && <View style={styles.label}>{label}</View>}
 
       <Controller
         control={control}
@@ -75,8 +79,12 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   label: {
-    fontSize: 14,
-    fontWeight: 600,
-    lineHeight: 20,
+    alignItems: 'center',
+    color: COLORS.TEXT_1,
+    flexDirection: 'row',
+    fontSize: 12,
+    fontWeight: 400,
+    gap: 4,
+    lineHeight: 16,
   },
 });

@@ -11,14 +11,16 @@ export const styles = StyleSheet.create({
   },
   defaultButton: {
     backgroundColor: COLORS.NEUTRALS_WHITE,
-    borderColor: COLORS.NEUTRALS_5,
+    borderColor: COLORS.NEUTRALS_1,
     borderWidth: 1,
   },
   defaultText: {
     color: COLORS.NEUTRALS_1,
   },
-  disable: {
+  disabled: {
     backgroundColor: COLORS.NEUTRALS_GRAY,
+  },
+  disabledText: {
     color: COLORS.TEXT_3,
   },
   insideContainer: {
@@ -28,6 +30,14 @@ export const styles = StyleSheet.create({
   },
   primaryButton: {
     backgroundColor: COLORS.BRANCH_2,
+  },
+  primaryOutlineButton: {
+    backgroundColor: COLORS.NEUTRALS_WHITE,
+    borderColor: COLORS.BRANCH_2,
+    borderWidth: 1,
+  },
+  primaryOutlineText: {
+    color: COLORS.BRANCH_2,
   },
   primaryText: {
     color: COLORS.TEXT_WHITE,

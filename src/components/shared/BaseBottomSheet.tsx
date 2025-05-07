@@ -3,6 +3,7 @@ import { styles } from '@/assets/styles/components/base-bottom-sheet.style';
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
+  BottomSheetProps,
   BottomSheetView,
 } from '@gorhom/bottom-sheet';
 import React, {
@@ -20,14 +21,16 @@ export interface IBottomSheetRef {
   present: () => void;
 }
 
-interface IProps extends React.PropsWithChildren {
+interface IProps extends BottomSheetProps {
+  hideCloseButton?: boolean;
   snapPoints?: string[];
-  title: string;
+  title?: string;
 }
 
 export const BaseBottomSheet = forwardRef<IBottomSheetRef, IProps>(
   (props, ref) => {
-    const { children, snapPoints, title, ...otherProps } = props;
+    const { children, hideCloseButton, snapPoints, title, ...otherProps } =
+      props;
 
     const bottomSheetRef = useRef<BottomSheetModal>(null);
 
@@ -58,16 +61,21 @@ export const BaseBottomSheet = forwardRef<IBottomSheetRef, IProps>(
       >
         <BottomSheetView style={styles.contentContainer}>
           <>
-            <TouchableOpacity onPress={handleClose} style={styles.closeButton}>
-              <View style={styles.iconClose}>
-                <IconClose />
-              </View>
-            </TouchableOpacity>
+            {!hideCloseButton && (
+              <TouchableOpacity
+                onPress={handleClose}
+                style={styles.closeButton}
+              >
+                <View style={styles.iconClose}>
+                  <IconClose />
+                </View>
+              </TouchableOpacity>
+            )}
 
-            <BaseText style={styles.modalTitle}>{title}</BaseText>
+            {title && <BaseText style={styles.modalTitle}>{title}</BaseText>}
           </>
 
-          <View>{children}</View>
+          <>{children}</>
         </BottomSheetView>
       </BottomSheetModal>
     );

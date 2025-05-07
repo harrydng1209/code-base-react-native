@@ -12,16 +12,14 @@ interface IProps {
   renderItem: (item: ICarouselItem) => JSX.Element;
 }
 
-export const BaseCarousel: React.FC<IProps> = (props) => {
-  const {
-    activeIndex,
-    autoScrollInterval = 3000,
-    data,
-    onScroll,
-    renderItem,
-    ...otherProps
-  } = props;
-
+export const BaseCarousel: React.FC<IProps> = ({
+  activeIndex,
+  autoScrollInterval = 3000,
+  data,
+  onScroll,
+  renderItem,
+  ...otherProps
+}) => {
   const { width: screenWidth } = Dimensions.get('window');
   const containerWidth = screenWidth - LAYOUTS.PADDING * 2;
   const flatListRef = useRef<FlatList<ICarouselItem>>(null);

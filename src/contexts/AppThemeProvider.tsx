@@ -7,9 +7,7 @@ import {
 
 interface IProps extends React.PropsWithChildren {}
 
-export const AppThemeProvider: React.FC<IProps> = (props) => {
-  const { children } = props;
-
+export const AppThemeProvider: React.FC<IProps> = ({ children }) => {
   const theme = useColorScheme();
 
   let themeConfig = {

@@ -14,9 +14,11 @@ interface IProps extends TouchableOpacityProps {
   tabs: TOptions[];
 }
 
-export const BaseTabs: React.FC<IProps> = (props) => {
-  const { children, tabs, ...otherProps } = props;
-
+export const BaseTabs: React.FC<IProps> = ({
+  children,
+  tabs,
+  ...otherProps
+}) => {
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   return (

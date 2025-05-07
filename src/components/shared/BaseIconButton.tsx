@@ -9,9 +9,11 @@ interface IProps extends TouchableOpacityProps {
   icon: React.ReactNode;
 }
 
-export const BaseIconButton: React.FC<IProps> = (props) => {
-  const { icon, style, ...otherProps } = props;
-
+export const BaseIconButton: React.FC<IProps> = ({
+  icon,
+  style,
+  ...otherProps
+}) => {
   return (
     <TouchableOpacity style={[styles.container, style]} {...otherProps}>
       {icon}

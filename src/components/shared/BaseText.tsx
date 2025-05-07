@@ -9,9 +9,14 @@ interface IProps extends TextProps {
   type?: 'error';
 }
 
-export const BaseText: React.FC<IProps> = (props) => {
-  const { darkColor, heading, lightColor, style, type, ...otherProps } = props;
-
+export const BaseText: React.FC<IProps> = ({
+  darkColor,
+  heading,
+  lightColor,
+  style,
+  type,
+  ...otherProps
+}) => {
   const { getThemeColor } = useThemeColor();
 
   const textColor = getThemeColor('TEXT', {

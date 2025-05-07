@@ -8,9 +8,12 @@ interface IProps extends TouchableOpacityProps {
   onPageChange: (index: number) => void;
 }
 
-export const BaseCarouselPagination: React.FC<IProps> = (props) => {
-  const { activeIndex, data, onPageChange, ...otherProps } = props;
-
+export const BaseCarouselPagination: React.FC<IProps> = ({
+  activeIndex,
+  data,
+  onPageChange,
+  ...otherProps
+}) => {
   return (
     <View style={styles.container}>
       {data.map((_, index) => (

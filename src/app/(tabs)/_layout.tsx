@@ -9,6 +9,10 @@ import { Platform, StyleSheet } from 'react-native';
 const TabsLayout: React.FC = () => {
   const { getThemeColor } = useThemeColor();
 
+  const getTabBarIconColor = (focused: boolean) => {
+    return focused ? COLORS.BRANCH_2 : COLORS.TEXT_3;
+  };
+
   return (
     <Tabs
       screenOptions={{
@@ -30,14 +34,11 @@ const TabsLayout: React.FC = () => {
         name="home-tab"
         options={{
           tabBarIcon: ({ focused }) => (
-            <IconHomeTab color={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3} />
+            <IconHomeTab color={getTabBarIconColor(focused)} />
           ),
           tabBarLabel: ({ focused }) => (
             <BaseText
-              style={[
-                styles.title,
-                { color: focused ? COLORS.BRANCH_2 : COLORS.TEXT_3 },
-              ]}
+              style={[styles.title, { color: getTabBarIconColor(focused) }]}
             >
               Home
             </BaseText>
@@ -49,14 +50,11 @@ const TabsLayout: React.FC = () => {
         name="profile-tab"
         options={{
           tabBarIcon: ({ focused }) => (
-            <IconProfileTab color={focused ? COLORS.BRANCH_2 : COLORS.TEXT_3} />
+            <IconProfileTab color={getTabBarIconColor(focused)} />
           ),
           tabBarLabel: ({ focused }) => (
             <BaseText
-              style={[
-                styles.title,
-                { color: focused ? COLORS.BRANCH_2 : COLORS.TEXT_3 },
-              ]}
+              style={[styles.title, { color: getTabBarIconColor(focused) }]}
             >
               Profile
             </BaseText>

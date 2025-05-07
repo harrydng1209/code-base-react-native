@@ -10,35 +10,65 @@ import {
 import { BaseText } from './BaseText';
 
 interface IProps extends TouchableOpacityProps {
+  disabled?: boolean;
   icon?: React.ReactNode;
   iconPosition?: 'end' | 'start';
   styleText?: StyleProp<TextStyle>;
-  type?: 'default' | 'disable' | 'primary' | 'secondary';
+  type?: 'default' | 'primary' | 'secondary';
+  variant?: 'outline' | 'solid';
 }
 
-export const BaseButton: React.FC<IProps> = (props) => {
-  const {
-    children,
-    icon,
-    iconPosition = 'start',
-    style,
-    styleText,
-    type = 'primary',
-    ...otherProps
-  } = props;
+export const BaseButton: React.FC<IProps> = ({
+  children,
+  disabled,
+  icon,
+  iconPosition = 'start',
+  style,
+  styleText,
+  type = 'primary',
+  variant = 'solid',
+  ...otherProps
+}) => {
+  const getButtonStyle = () => {
+    if (variant === 'outline') {
+      return {
+        default: undefined,
+        primary: styles.primaryOutlineButton,
+        secondary: undefined,
+      }[type];
+    }
 
-  const buttonStyles = {
-    default: styles.defaultButton,
-    disable: styles.secondaryButton,
-    primary: styles.primaryButton,
-    secondary: styles.secondaryButton,
+    return {
+      default: styles.defaultButton,
+      primary: styles.primaryButton,
+      secondary: styles.secondaryButton,
+    }[type];
   };
 
-  const textStyles = {
-    default: styles.defaultText,
-    disable: styles.disable,
-    primary: styles.primaryText,
-    secondary: styles.secondaryText,
+  const getTextStyle = () => {
+    if (variant === 'outline') {
+      return {
+        default: styles.defaultText,
+        primary: styles.primaryOutlineText,
+        secondary: undefined,
+      }[type];
+    }
+
+    return {
+      default: styles.defaultText,
+      primary: styles.primaryText,
+      secondary: styles.secondaryText,
+    }[type];
+  };
+
+  const getDisabledStyle = () => {
+    if (variant === 'outline') return undefined;
+    return styles.disabled;
+  };
+
+  const getDisabledTextStyle = () => {
+    if (variant === 'outline') return undefined;
+    return styles.disabledText;
   };
 
   const iconStyles = {
@@ -51,9 +81,11 @@ export const BaseButton: React.FC<IProps> = (props) => {
 
   return (
     <TouchableOpacity
+      disabled={disabled}
       style={[
         styles.container,
-        buttonStyles[otherProps.disabled ? 'disable' : type],
+        getButtonStyle(),
+        disabled && getDisabledStyle(),
         style,
       ]}
       {...otherProps}
@@ -75,7 +107,8 @@ export const BaseButton: React.FC<IProps> = (props) => {
         <BaseText
           style={[
             styles.text,
-            textStyles[otherProps.disabled ? 'disable' : type],
+            getTextStyle(),
+            disabled && getDisabledTextStyle(),
             styleText,
           ]}
         >

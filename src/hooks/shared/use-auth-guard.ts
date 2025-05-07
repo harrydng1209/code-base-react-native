@@ -8,9 +8,7 @@ interface IProps {
   fontLoaded: boolean;
 }
 
-export const useAuthGuard = (props: IProps) => {
-  const { fontError, fontLoaded } = props;
-
+export const useAuthGuard = ({ fontError, fontLoaded }: IProps) => {
   const router = useRouter();
   const segments = useSegments();
 
