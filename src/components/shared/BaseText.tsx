@@ -3,6 +3,7 @@ import { useThemeColor } from '@/hooks/shared/use-theme-color';
 import { Text, type TextProps } from 'react-native';
 
 interface IProps extends TextProps {
+  children: React.ReactNode;
   darkColor?: string;
   heading?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   lightColor?: string;
@@ -10,6 +11,7 @@ interface IProps extends TextProps {
 }
 
 export const BaseText: React.FC<IProps> = ({
+  children,
   darkColor,
   heading,
   lightColor,
@@ -37,6 +39,8 @@ export const BaseText: React.FC<IProps> = ({
         style,
       ]}
       {...otherProps}
-    />
+    >
+      {children}
+    </Text>
   );
 };

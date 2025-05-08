@@ -10,6 +10,7 @@ import {
 import { BaseText } from './BaseText';
 
 interface IProps extends TouchableOpacityProps {
+  children: React.ReactNode;
   disabled?: boolean;
   icon?: React.ReactNode;
   iconPosition?: 'end' | 'start';

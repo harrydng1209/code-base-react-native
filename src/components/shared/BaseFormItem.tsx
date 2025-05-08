@@ -27,9 +27,18 @@ export const BaseFormItem: React.FC<IProps> = ({
 
   const hasError = Boolean(errors?.[name]);
 
+  const renderLabel = () => {
+    if (!label) return null;
+
+    if (typeof label === 'string')
+      return <BaseText style={styles.labelText}>{label}</BaseText>;
+
+    return <>{label}</>;
+  };
+
   return (
     <View className="nw-gap-1">
-      {label && <View style={styles.label}>{label}</View>}
+      {renderLabel()}
 
       <Controller
         control={control}
@@ -78,13 +87,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 4,
   },
-  label: {
-    alignItems: 'center',
+  labelText: {
     color: COLORS.TEXT_1,
-    flexDirection: 'row',
     fontSize: 12,
     fontWeight: 400,
-    gap: 4,
     lineHeight: 16,
   },
 });
